@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NextPath - Connect, Grow, Succeed</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-white">
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <i data-lucide="graduation-cap" class="h-8 w-8 text-white transition-colors"></i>
+          <span class="ml-2 text-xl font-bold text-white transition-colors">NextPath</span>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#features" class="text-white hover:text-blue-200 transition-colors">Features</a>
+          <a href="#how-it-works" class="text-white hover:text-blue-200 transition-colors">How It Works</a>
+          <a href="#events" class="text-white hover:text-blue-200 transition-colors">Events</a>
+          <div class="flex items-center space-x-4">
+            <button onclick="window.location.href='student.html'" class="px-4 py-2 text-sm font-medium text-blue-600 bg-white rounded-lg hover:bg-blue-50 transition-colors">Student Login</button>
+            <button onclick="window.location.href='alumni.html'" class="px-4 py-2 text-sm font-medium text-blue-600 bg-white rounded-lg hover:bg-blue-50 transition-colors">Alumni Login</button>
+            <button onclick="window.location.href='signup.html'" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors">Sign Up</button>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="text-white transition-colors">
+            <i id="menu-icon" data-lucide="menu" class="h-6 w-6"></i>
+            <i id="close-icon" data-lucide="x" class="h-6 w-6 hidden"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div id="mobile-menu" class="md:hidden bg-white border-t hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a href="#features" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Features</a>
+          <a href="#how-it-works" class="block px-3 py-2 text-gray-700 hover:text-blue-600">How It Works</a>
+          <a href="#events" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Events</a>
+          <div class="flex flex-col space-y-2 px-3 pt-2">
+            <button onclick="window.location.href='student.html'" class="px-4 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg">Student Login</button>
+            <button onclick="window.location.href='alumni.html'" class="px-4 py-2 text-sm font-medium text-blue-600 bg-blue-50 rounded-lg">Alumni Login</button>
+            <button onclick="window.location.href='signup.html'" class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+      <div class="absolute top-40 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
+      <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="animate-fade-in-up">
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          Connect, Grow, and
+          <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"> Succeed</span>
+        </h1>
+        <p class="text-xl sm:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+          NextPath bridges the gap between students and alumni, creating a thriving ecosystem of mentorship, 
+          opportunities, and lifelong connections.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <button onclick="window.location.href='signup.html'" class="group px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transform hover:-translate-y-1 transition-all duration-300 shadow-lg flex items-center">
+            Get Started Today
+            <i data-lucide="arrow-right" class="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform"></i>
+          </button>
+          <button class="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transform hover:-translate-y-1 transition-all duration-300">
+            Watch Demo
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
+        <div class="text-center">
+          <span id="counter-50000" class="font-bold text-3xl text-white">0+</span>
+          <p class="text-blue-200 mt-2">Active Alumni</p>
+        </div>
+        <div class="text-center">
+          <span id="counter-200" class="font-bold text-3xl text-white">0+</span>
+          <p class="text-blue-200 mt-2">Universities</p>
+        </div>
+        <div class="text-center">
+          <span id="counter-15000" class="font-bold text-3xl text-white">0+</span>
+          <p class="text-blue-200 mt-2">Job Placements</p>
+        </div>
+        <div class="text-center">
+          <span id="counter-98" class="font-bold text-3xl text-white">0%</span>
+          <p class="text-blue-200 mt-2">Success Rate</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">
+          Powerful Features for <span class="text-blue-600">Every User</span>
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Our platform provides comprehensive tools for seamless alumni-student interaction and career development.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="group bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+          <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+            <i data-lucide="users" class="h-6 w-6 text-blue-600 group-hover:text-white transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Alumni Network</h3>
+          <p class="text-gray-600 leading-relaxed">Connect with alumni from your institution and build meaningful professional relationships.</p>
+        </div>
+        <div class="group bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+          <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+            <i data-lucide="briefcase" class="h-6 w-6 text-blue-600 group-hover:text-white transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Career Opportunities</h3>
+          <p class="text-gray-600 leading-relaxed">Access exclusive job postings, internships, and career guidance from industry professionals.</p>
+        </div>
+        <div class="group bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+          <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+            <i data-lucide="heart" class="h-6 w-6 text-blue-600 group-hover:text-white transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Mentorship Programs</h3>
+          <p class="text-gray-600 leading-relaxed">Get paired with experienced mentors who can guide your career journey.</p>
+        </div>
+        <div class="group bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+          <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+            <i data-lucide="calendar" class="h-6 w-6 text-blue-600 group-hover:text-white transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Events & Workshops</h3>
+          <p class="text-gray-600 leading-relaxed">Attend networking events, workshops, and seminars organized by your alumni network.</p>
+        </div>
+        <div class="group bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+          <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+            <i data-lucide="award" class="h-6 w-6 text-blue-600 group-hover:text-white transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Achievement Tracking</h3>
+          <p class="text-gray-600 leading-relaxed">Showcase your accomplishments and track your professional growth over time.</p>
+        </div>
+        <div class="group bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300">
+          <div class="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
+            <i data-lucide="globe" class="h-6 w-6 text-blue-600 group-hover:text-white transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-4">Global Community</h3>
+          <p class="text-gray-600 leading-relaxed">Connect with alumni worldwide and expand your international network.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">How NextPath Works</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Get started in just three simple steps and unlock a world of opportunities.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="relative text-center">
+          <div class="bg-blue-600 text-white w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+            01
+          </div>
+          <h3 class="text-2xl font-semibold text-gray-900 mb-4">Create Your Profile</h3>
+          <p class="text-gray-600 leading-relaxed">Sign up and build your comprehensive profile with your educational background, skills, and aspirations.</p>
+          <div class="hidden md:block absolute top-10 left-full w-full">
+            <i data-lucide="chevron-right" class="h-8 w-8 text-blue-300 mx-auto transform -translate-x-4"></i>
+          </div>
+        </div>
+        <div class="relative text-center">
+          <div class="bg-blue-600 text-white w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+            02
+          </div>
+          <h3 class="text-2xl font-semibold text-gray-900 mb-4">Connect & Explore</h3>
+          <p class="text-gray-600 leading-relaxed">Discover alumni from your institution, browse opportunities, and join relevant groups and events.</p>
+          <div class="hidden md:block absolute top-10 left-full w-full">
+            <i data-lucide="chevron-right" class="h-8 w-8 text-blue-300 mx-auto transform -translate-x-4"></i>
+          </div>
+        </div>
+        <div class="relative text-center">
+          <div class="bg-blue-600 text-white w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
+            03
+          </div>
+          <h3 class="text-2xl font-semibold text-gray-900 mb-4">Grow & Succeed</h3>
+          <p class="text-gray-600 leading-relaxed">Engage with mentors, apply for opportunities, and build lasting professional relationships.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section id="events" class="py-20 bg-gradient-to-br from-blue-900 to-purple-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Upcoming Events</h2>
+        <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+          Don't miss out on networking opportunities, workshops, and career development sessions.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="group bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20 hover:bg-white/20 transform hover:-translate-y-2 transition-all duration-300">
+          <div class="flex justify-between items-start mb-4">
+            <div class="bg-blue-500 px-3 py-1 rounded-lg text-sm font-semibold">
+              Dec 15
+            </div>
+            <i data-lucide="users" class="h-5 w-5 text-blue-200"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Tech Career Workshop</h3>
+          <div class="space-y-2 text-blue-100">
+            <div class="flex items-center">
+              <i data-lucide="map-pin" class="h-4 w-4 mr-2"></i>
+              <span class="text-sm">Online</span>
+            </div>
+            <div class="flex items-center">
+              <i data-lucide="clock" class="h-4 w-4 mr-2"></i>
+              <span class="text-sm">6:00 PM IST</span>
+            </div>
+            <div class="flex items-center">
+              <i data-lucide="users" class="h-4 w-4 mr-2"></i>
+              <span class="text-sm">150 attending</span>
+            </div>
+          </div>
+          <button class="w-full mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors group-hover:bg-blue-500">
+            Register Now
+          </button>
+        </div>
+        <div class="group bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20 hover:bg-white/20 transform hover:-translate-y-2 transition-all duration-300">
+          <div class="flex justify-between items-start mb-4">
+            <div class="bg-blue-500 px-3 py-1 rounded-lg text-sm font-semibold">
+              Dec 20
+            </div>
+            <i data-lucide="users" class="h-5 w-5 text-blue-200"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Alumni Networking Night</h3>
+          <div class="space-y-2 text-blue-100">
+            <div class="flex items-center">
+              <i data-lucide="map-pin" class="h-4 w-4 mr-2"></i>
+              <span class="text-sm">Mumbai</span>
+            </div>
+            <div class="flex items-center">
+              <i data-lucide="clock" class="h-4 w-4 mr-2"></i>
+              <span class="text-sm">7:00 PM IST</span>
+            </div>
+            <div class="flex items-center">
+              <i data-lucide="users" class="h-4 w-4 mr-2"></i>
+              <span class="text-sm">80 attending</span>
+            </div>
+          </div>
+          <button class="w-full mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors group-hover:bg-blue-500">
+            Register Now
+          </button>
+        </div>
+        <div class="group bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20 hover:bg-white/20 transform hover:-translate-y-2 transition-all duration-300">
+          <div class="flex justify-between items-start mb-4">
+            <div class="bg-blue-500 px-3 py-1 rounded-lg text-sm font-semibold">
+              Dec 25
+            </div>
+            <i data-lucide="users" class="h-5 w-5 text-blue-200"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Startup Pitch Session</h3>
+          <div class="space-y-2 text-blue-100">
+            <div class="flex items-center">
+              <i data-lucide="map-pin" class="h-4 w-4 mr-2"></i>
+              <span class="text-sm">Bangalore</span>
+            </div>
+            <div class="flex items-center">
+              <i data-lucide="clock" class="h-4 w-4 mr-2"></i>
+              <span class="text-sm">5:00 PM IST</span>
+            </div>
+            <div class="flex items-center">
+              <i data-lucide="users" class="h-4 w-4 mr-2"></i>
+              <span class="text-sm">200 attending</span>
+            </div>
+          </div>
+          <button class="w-full mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors group-hover:bg-blue-500">
+            Register Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">What Our Community Says</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Hear from students and alumni who have transformed their careers through NextPath.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
+          <div class="flex items-center mb-4">
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+          </div>
+          <p class="text-gray-600 mb-6 leading-relaxed">"NextPath connected me with my mentor who guided me through my Google interview process. It's been life-changing!"</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
+              PS
+            </div>
+            <div class="ml-4">
+              <h4 class="font-semibold text-gray-900">Priya Sharma</h4>
+              <p class="text-sm text-gray-600">Software Engineer at Google</p>
+              <p class="text-xs text-blue-600">Class of 2020</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
+          <div class="flex items-center mb-4">
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+          </div>
+          <p class="text-gray-600 mb-6 leading-relaxed">"The networking opportunities on NextPath are unparalleled. I've made connections that last a lifetime."</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
+              RK
+            </div>
+            <div class="ml-4">
+              <h4 class="font-semibold text-gray-900">Rohit Kumar</h4>
+              <p class="text-sm text-gray-600">Product Manager at Microsoft</p>
+              <p class="text-xs text-blue-600">Class of 2018</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
+          <div class="flex items-center mb-4">
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+            <i data-lucide="star" class="h-5 w-5 text-yellow-400 fill-current"></i>
+          </div>
+          <p class="text-gray-600 mb-6 leading-relaxed">"Through NextPath, I found my co-founder and investors. The platform truly empowers entrepreneurship."</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
+              AP
+            </div>
+            <div class="ml-4">
+              <h4 class="font-semibold text-gray-900">Anita Patel</h4>
+              <p class="text-sm text-gray-600">Startup Founder</p>
+              <p class="text-xs text-blue-600">Class of 2019</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold mb-6">Ready to Transform Your Career?</h2>
+      <p class="text-xl mb-8 text-blue-100">
+        Join thousands of students and alumni who are already building their future on NextPath.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button onclick="window.location.href='student.html'" class="group px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transform hover:-translate-y-1 transition-all duration-300 shadow-lg flex items-center justify-center">
+          Join as Student
+          <i data-lucide="arrow-right" class="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform"></i>
+        </button>
+        <button onclick="window.location.href='alumni.html'" class="group px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transform hover:-translate-y-1 transition-all duration-300 shadow-lg flex items-center justify-center">
+          Join as Alumni
+          <i data-lucide="arrow-right" class="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+          <div class="flex items-center mb-4">
+            <i data-lucide="graduation-cap" class="h-8 w-8 text-blue-400"></i>
+            <span class="ml-2 text-xl font-bold">NextPath</span>
+          </div>
+          <p class="text-gray-400 mb-6 max-w-md">
+            Empowering students and alumni to build meaningful connections and successful careers through our innovative platform.
+          </p>
+          <div class="text-sm text-gray-500">
+            © 2025 NextPath. Built for Smart India Hackathon 2025.
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="font-semibold mb-4">Platform</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+            <li><a href="#how-it-works" class="hover:text-white transition-colors">How It Works</a></li>
+            <li><a href="#events" class="hover:text-white transition-colors">Events</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Success Stories</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="font-semibold mb-4">Support</h3>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

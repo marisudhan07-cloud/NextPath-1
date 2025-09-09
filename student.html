@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard - NextPath</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="student.css">
+</head>
+<body class="bg-gray-50">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-lg border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <i data-lucide="graduation-cap" class="h-8 w-8 text-blue-600"></i>
+          <span class="ml-2 text-xl font-bold text-gray-900">NextPath</span>
+          <span class="ml-2 text-sm text-blue-600 bg-blue-100 px-2 py-1 rounded-full">Student</span>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+          <button class="p-2 text-gray-600 hover:text-blue-600 transition-colors">
+            <i data-lucide="bell" class="h-5 w-5"></i>
+          </button>
+          <button class="p-2 text-gray-600 hover:text-blue-600 transition-colors">
+            <i data-lucide="mail" class="h-5 w-5"></i>
+          </button>
+          <div class="flex items-center space-x-2">
+            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-sm">
+              JS
+            </div>
+            <span class="text-sm font-medium text-gray-700">John Student</span>
+          </div>
+          <button onclick="window.location.href='../home/index.html'" class="px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="flex">
+    <!-- Sidebar -->
+    <div class="w-64 bg-white shadow-lg h-screen sticky top-0">
+      <div class="p-6">
+        <nav class="space-y-2">
+          <a href="#dashboard" class="flex items-center px-4 py-3 text-blue-600 bg-blue-50 rounded-lg font-medium">
+            <i data-lucide="home" class="h-5 w-5 mr-3"></i>
+            Dashboard
+          </a>
+          <a href="#profile" class="flex items-center px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+            <i data-lucide="user" class="h-5 w-5 mr-3"></i>
+            My Profile
+          </a>
+          <a href="#mentors" class="flex items-center px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+            <i data-lucide="users" class="h-5 w-5 mr-3"></i>
+            Find Mentors
+          </a>
+          <a href="#jobs" class="flex items-center px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+            <i data-lucide="briefcase" class="h-5 w-5 mr-3"></i>
+            Job Opportunities
+          </a>
+          <a href="#events" class="flex items-center px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+            <i data-lucide="calendar" class="h-5 w-5 mr-3"></i>
+            Events
+          </a>
+          <a href="#network" class="flex items-center px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+            <i data-lucide="globe" class="h-5 w-5 mr-3"></i>
+            Alumni Network
+          </a>
+          <a href="#achievements" class="flex items-center px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+            <i data-lucide="award" class="h-5 w-5 mr-3"></i>
+            Achievements
+          </a>
+          <a href="#resources" class="flex items-center px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+            <i data-lucide="book-open" class="h-5 w-5 mr-3"></i>
+            Resources
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-8">
+      <!-- Welcome Section -->
+      <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">Welcome back, John! 👋</h1>
+        <p class="text-gray-600">Here's what's happening in your NextPath journey today.</p>
+      </div>
+
+      <!-- Stats Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm font-medium text-gray-600">Connections</p>
+              <p class="text-2xl font-bold text-gray-900">24</p>
+            </div>
+            <div class="bg-blue-100 p-3 rounded-lg">
+              <i data-lucide="users" class="h-6 w-6 text-blue-600"></i>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm font-medium text-gray-600">Applications</p>
+              <p class="text-2xl font-bold text-gray-900">8</p>
+            </div>
+            <div class="bg-green-100 p-3 rounded-lg">
+              <i data-lucide="briefcase" class="h-6 w-6 text-green-600"></i>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm font-medium text-gray-600">Events Attended</p>
+              <p class="text-2xl font-bold text-gray-900">12</p>
+            </div>
+            <div class="bg-purple-100 p-3 rounded-lg">
+              <i data-lucide="calendar" class="h-6 w-6 text-purple-600"></i>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm font-medium text-gray-600">Profile Score</p>
+              <p class="text-2xl font-bold text-gray-900">85%</p>
+            </div>
+            <div class="bg-yellow-100 p-3 rounded-lg">
+              <i data-lucide="star" class="h-6 w-6 text-yellow-600"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Left Column -->
+        <div class="lg:col-span-2 space-y-8">
+          <!-- Recent Job Opportunities -->
+          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-xl font-bold text-gray-900">Recent Job Opportunities</h2>
+              <button class="text-blue-600 hover:text-blue-700 font-medium">View All</button>
+            </div>
+            <div class="space-y-4">
+              <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                <div class="flex items-start justify-between">
+                  <div class="flex-1">
+                    <h3 class="font-semibold text-gray-900">Software Engineer Intern</h3>
+                    <p class="text-sm text-gray-600 mt-1">Google • Bangalore • Internship</p>
+                    <div class="flex items-center mt-2 space-x-4">
+                      <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">React</span>
+                      <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Node.js</span>
+                      <span class="text-xs text-gray-500">Posted 2 days ago</span>
+                    </div>
+                  </div>
+                  <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    Apply
+                  </button>
+                </div>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+                <div class="flex items-start justify-between">
+                  <div class="flex-1">
+                    <h3 class="font-semibold text-gray-900">Product Manager Trainee</h3>
+                    <p class="text-sm text-gray-600 mt-1">Microsoft • Mumbai • Full-time</p>
+                    <div class="flex items-center mt-2 space-x-4">
+                      <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Product</span>
+                      <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Strategy</span>
+                      <span class="text-xs text-gray-500">Posted 1 week ago</span>
+                    </div>
+                  </div>
+                  <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    Apply
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Upcoming Events -->
+          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-xl font-bold text-gray-900">Upcoming Events</h2>
+              <button class="text-blue-600 hover:text-blue-700 font-medium">View All</button>
+            </div>
+            <div class="space-y-4">
+              <div class="border border-gray-200 rounded-lg p-4">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h3 class="font-semibold text-gray-900">Tech Career Workshop</h3>
+                    <p class="text-sm text-gray-600 mt-1">Dec 15, 2024 • 6:00 PM IST • Online</p>
+                    <p class="text-xs text-blue-600 mt-2">150 students registered</p>
+                  </div>
+                  <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                    Registered
+                  </button>
+                </div>
+              </div>
+              <div class="border border-gray-200 rounded-lg p-4">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h3 class="font-semibold text-gray-900">Alumni Networking Night</h3>
+                    <p class="text-sm text-gray-600 mt-1">Dec 20, 2024 • 7:00 PM IST • Mumbai</p>
+                    <p class="text-xs text-gray-600 mt-2">80 attendees expected</p>
+                  </div>
+                  <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    Register
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="space-y-8">
+          <!-- My Mentors -->
+          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-xl font-bold text-gray-900">My Mentors</h2>
+              <button class="text-blue-600 hover:text-blue-700 font-medium">Find More</button>
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
+                  RS
+                </div>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900">Rahul Singh</h3>
+                  <p class="text-sm text-gray-600">Senior SDE at Amazon</p>
+                  <p class="text-xs text-blue-600">Available for chat</p>
+                </div>
+                <button class="p-2 text-gray-400 hover:text-blue-600 transition-colors">
+                  <i data-lucide="message-circle" class="h-5 w-5"></i>
+                </button>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
+                  PK
+                </div>
+                <div class="flex-1">
+                  <h3 class="font-semibold text-gray-900">Priya Kapoor</h3>
+                  <p class="text-sm text-gray-600">Product Manager at Google</p>
+                  <p class="text-xs text-gray-500">Last seen 2h ago</p>
+                </div>
+                <button class="p-2 text-gray-400 hover:text-blue-600 transition-colors">
+                  <i data-lucide="message-circle" class="h-5 w-5"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
+            <h2 class="text-xl font-bold text-gray-900 mb-6">Quick Actions</h2>
+            <div class="space-y-3">
+              <button class="w-full flex items-center px-4 py-3 text-left text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
+                <i data-lucide="user-plus" class="h-5 w-5 mr-3"></i>
+                Update Profile
+              </button>
+              <button class="w-full flex items-center px-4 py-3 text-left text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
+                <i data-lucide="search" class="h-5 w-5 mr-3"></i>
+                Find Alumni
+              </button>
+              <button class="w-full flex items-center px-4 py-3 text-left text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
+                <i data-lucide="calendar-plus" class="h-5 w-5 mr-3"></i>
+                Schedule Meeting
+              </button>
+              <button class="w-full flex items-center px-4 py-3 text-left text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
+                <i data-lucide="file-text" class="h-5 w-5 mr-3"></i>
+                Resume Builder
+              </button>
+            </div>
+          </div>
+
+          <!-- Recent Activity -->
+          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
+            <h2 class="text-xl font-bold text-gray-900 mb-6">Recent Activity</h2>
+            <div class="space-y-4">
+              <div class="flex items-start space-x-3">
+                <div class="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
+                <div>
+                  <p class="text-sm text-gray-900">Applied to Software Engineer position at Google</p>
+                  <p class="text-xs text-gray-500">2 hours ago</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <div class="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
+                <div>
+                  <p class="text-sm text-gray-900">Connected with Rahul Singh</p>
+                  <p class="text-xs text-gray-500">1 day ago</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-3">
+                <div class="w-2 h-2 bg-purple-600 rounded-full mt-2"></div>
+                <div>
+                  <p class="text-sm text-gray-900">Registered for Tech Career Workshop</p>
+                  <p class="text-xs text-gray-500">3 days ago</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chatbot -->
+  <div id="chatbot-container" class="fixed bottom-6 right-6 z-50">
+    <!-- Chatbot Button -->
+    <button id="chatbot-toggle" class="bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110">
+      <i data-lucide="message-circle" class="h-6 w-6"></i>
+    </button>
+
+    <!-- Chatbot Window -->
+    <div id="chatbot-window" class="hidden absolute bottom-16 right-0 w-80 bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden">
+      <!-- Header -->
+      <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+              <i data-lucide="bot" class="h-5 w-5"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold">NextPath Assistant</h3>
+              <p class="text-xs text-blue-100">Online • Ready to help</p>
+            </div>
+          </div>
+          <button id="chatbot-close" class="text-white/80 hover:text-white">
+            <i data-lucide="x" class="h-5 w-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Chat Messages -->
+      <div id="chat-messages" class="h-80 overflow-y-auto p-4 space-y-3">
+        <div class="flex items-start space-x-2">
+          <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+            <i data-lucide="bot" class="h-4 w-4 text-blue-600"></i>
+          </div>
+          <div class="bg-gray-100 rounded-lg p-3 max-w-xs">
+            <p class="text-sm text-gray-800">Hi! I'm your NextPath assistant. How can I help you today?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="p-3 border-t border-gray-200">
+        <div class="flex flex-wrap gap-2 mb-3">
+          <button class="quick-question px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs hover:bg-blue-100 transition-colors">
+            Find mentors
+          </button>
+          <button class="quick-question px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs hover:bg-blue-100 transition-colors">
+            Job opportunities
+          </button>
+          <button class="quick-question px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs hover:bg-blue-100 transition-colors">
+            Upcoming events
+          </button>
+          <button class="quick-question px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs hover:bg-blue-100 transition-colors">
+            Profile tips
+          </button>
+        </div>
+      </div>
+
+      <!-- Input -->
+      <div class="p-4 border-t border-gray-200">
+        <div class="flex space-x-2">
+          <input 
+            type="text" 
+            id="chat-input" 
+            placeholder="Type your message..." 
+            class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+          >
+          <button id="send-message" class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition-colors">
+            <i data-lucide="send" class="h-4 w-4"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="student.js"></script>
+</body>
+</html>
