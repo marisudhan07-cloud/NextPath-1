@@ -10,299 +10,297 @@
 </head>
 <body class="bg-gray-50">
   <!-- Navigation -->
-  <nav class="bg-white shadow-lg border-b border-gray-200">
+  <nav class="bg-white shadow-lg sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center">
           <i data-lucide="graduation-cap" class="h-8 w-8 text-blue-600"></i>
           <span class="ml-2 text-xl font-bold text-gray-900">NextPath</span>
-          <span class="ml-2 text-sm text-blue-600 bg-blue-100 px-2 py-1 rounded-full">Student</span>
+          <span class="ml-4 px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Student</span>
         </div>
         
         <div class="flex items-center space-x-4">
-          <button class="p-2 text-gray-600 hover:text-blue-600 transition-colors">
-            <i data-lucide="bell" class="h-5 w-5"></i>
-          </button>
-          <button class="p-2 text-gray-600 hover:text-blue-600 transition-colors">
-            <i data-lucide="mail" class="h-5 w-5"></i>
+          <button onclick="showNotifications()" class="relative p-2 text-gray-600 hover:text-blue-600 transition-colors">
+            <i data-lucide="bell" class="h-6 w-6"></i>
+            <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
           </button>
           <div class="flex items-center space-x-2">
             <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-sm">
               JS
             </div>
-            <span class="text-sm font-medium text-gray-700">John Student</span>
+            <span class="text-gray-700 font-medium">John Student</span>
           </div>
-          <button onclick="window.location.href='../home/index.html'" class="px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
-            Logout
+          <button onclick="showProfileMenu()" class="p-2 text-gray-600 hover:text-blue-600 transition-colors">
+            <i data-lucide="chevron-down" class="h-4 w-4"></i>
           </button>
         </div>
       </div>
     </div>
   </nav>
 
-  <div class="flex">
-    <!-- Sidebar -->
-    <div class="w-64 bg-white shadow-lg h-screen sticky top-0">
-      <div class="p-6">
-        <nav class="space-y-2">
-          <a href="#dashboard" class="flex items-center px-4 py-3 text-blue-600 bg-blue-50 rounded-lg font-medium">
-            <i data-lucide="home" class="h-5 w-5 mr-3"></i>
-            Dashboard
-          </a>
-          <a href="#profile" class="flex items-center px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
-            <i data-lucide="user" class="h-5 w-5 mr-3"></i>
-            My Profile
-          </a>
-          <a href="#mentors" class="flex items-center px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
-            <i data-lucide="users" class="h-5 w-5 mr-3"></i>
-            Find Mentors
-          </a>
-          <a href="#jobs" class="flex items-center px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
-            <i data-lucide="briefcase" class="h-5 w-5 mr-3"></i>
-            Job Opportunities
-          </a>
-          <a href="#events" class="flex items-center px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
-            <i data-lucide="calendar" class="h-5 w-5 mr-3"></i>
-            Events
-          </a>
-          <a href="#network" class="flex items-center px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
-            <i data-lucide="globe" class="h-5 w-5 mr-3"></i>
-            Alumni Network
-          </a>
-          <a href="#achievements" class="flex items-center px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
-            <i data-lucide="award" class="h-5 w-5 mr-3"></i>
-            Achievements
-          </a>
-          <a href="#resources" class="flex items-center px-4 py-3 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
-            <i data-lucide="book-open" class="h-5 w-5 mr-3"></i>
-            Resources
-          </a>
-        </nav>
+  <!-- Main Content -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Welcome Section -->
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-gray-900 mb-2">Welcome back, John! 👋</h1>
+      <p class="text-gray-600">Here's what's happening with your career journey today.</p>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm font-medium text-gray-600">Profile Completion</p>
+            <p class="text-2xl font-bold text-gray-900">85%</p>
+          </div>
+          <div class="bg-blue-100 p-3 rounded-lg">
+            <i data-lucide="user" class="h-6 w-6 text-blue-600"></i>
+          </div>
+        </div>
+        <div class="mt-4 bg-gray-200 rounded-full h-2">
+          <div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div>
+        </div>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm font-medium text-gray-600">Applications Sent</p>
+            <p class="text-2xl font-bold text-gray-900">12</p>
+          </div>
+          <div class="bg-green-100 p-3 rounded-lg">
+            <i data-lucide="send" class="h-6 w-6 text-green-600"></i>
+          </div>
+        </div>
+        <p class="text-sm text-green-600 mt-2">+3 this week</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm font-medium text-gray-600">Mentor Connections</p>
+            <p class="text-2xl font-bold text-gray-900">5</p>
+          </div>
+          <div class="bg-purple-100 p-3 rounded-lg">
+            <i data-lucide="users" class="h-6 w-6 text-purple-600"></i>
+          </div>
+        </div>
+        <p class="text-sm text-purple-600 mt-2">2 active chats</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm font-medium text-gray-600">Events Attended</p>
+            <p class="text-2xl font-bold text-gray-900">8</p>
+          </div>
+          <div class="bg-orange-100 p-3 rounded-lg">
+            <i data-lucide="calendar" class="h-6 w-6 text-orange-600"></i>
+          </div>
+        </div>
+        <p class="text-sm text-orange-600 mt-2">Next: Tomorrow</p>
       </div>
     </div>
 
-    <!-- Main Content -->
-    <div class="flex-1 p-8">
-      <!-- Welcome Section -->
-      <div class="mb-8">
-        <h1 class="text-3xl font-bold text-gray-900 mb-2">Welcome back, John! 👋</h1>
-        <p class="text-gray-600">Here's what's happening in your NextPath journey today.</p>
+    <!-- Main Dashboard Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Left Column -->
+      <div class="lg:col-span-2 space-y-8">
+        <!-- Quick Actions -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <h2 class="text-xl font-bold text-gray-900 mb-6">Quick Actions</h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <button onclick="findMentors()" class="flex flex-col items-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
+              <i data-lucide="user-plus" class="h-8 w-8 text-blue-600 mb-2"></i>
+              <span class="text-sm font-medium text-gray-900">Find Mentors</span>
+            </button>
+            <button onclick="browseJobs()" class="flex flex-col items-center p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors">
+              <i data-lucide="briefcase" class="h-8 w-8 text-green-600 mb-2"></i>
+              <span class="text-sm font-medium text-gray-900">Browse Jobs</span>
+            </button>
+            <button onclick="viewEvents()" class="flex flex-col items-center p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors">
+              <i data-lucide="calendar" class="h-8 w-8 text-purple-600 mb-2"></i>
+              <span class="text-sm font-medium text-gray-900">Events</span>
+            </button>
+            <button onclick="updateProfile()" class="flex flex-col items-center p-4 bg-orange-50 rounded-lg hover:bg-orange-100 transition-colors">
+              <i data-lucide="settings" class="h-8 w-8 text-orange-600 mb-2"></i>
+              <span class="text-sm font-medium text-gray-900">Profile</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Recent Job Opportunities -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-bold text-gray-900">Recent Job Opportunities</h2>
+            <button onclick="viewAllJobs()" class="text-blue-600 hover:text-blue-700 font-medium">View All</button>
+          </div>
+          <div class="space-y-4">
+            <div class="border border-gray-200 rounded-lg p-4 hover:border-blue-300 transition-colors cursor-pointer" onclick="viewJob('software-engineer')">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-semibold text-gray-900">Software Engineer Intern</h3>
+                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">New</span>
+              </div>
+              <p class="text-gray-600 text-sm mb-2">Google • Bangalore • Internship</p>
+              <p class="text-gray-700 text-sm mb-3">Join our team to work on cutting-edge technology and make an impact on billions of users worldwide.</p>
+              <div class="flex justify-between items-center">
+                <span class="text-blue-600 font-medium">₹50,000/month</span>
+                <button onclick="applyJob('software-engineer')" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition-colors">Apply Now</button>
+              </div>
+            </div>
+
+            <div class="border border-gray-200 rounded-lg p-4 hover:border-blue-300 transition-colors cursor-pointer" onclick="viewJob('product-manager')">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-semibold text-gray-900">Product Manager Trainee</h3>
+                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Featured</span>
+              </div>
+              <p class="text-gray-600 text-sm mb-2">Microsoft • Mumbai • Full-time</p>
+              <p class="text-gray-700 text-sm mb-3">Lead product development initiatives and work with cross-functional teams to deliver innovative solutions.</p>
+              <div class="flex justify-between items-center">
+                <span class="text-blue-600 font-medium">₹8,00,000/year</span>
+                <button onclick="applyJob('product-manager')" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition-colors">Apply Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Upcoming Events -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-bold text-gray-900">Upcoming Events</h2>
+            <button onclick="viewAllEvents()" class="text-blue-600 hover:text-blue-700 font-medium">View All</button>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center p-4 bg-blue-50 rounded-lg">
+              <div class="bg-blue-600 text-white p-2 rounded-lg mr-4">
+                <i data-lucide="calendar" class="h-5 w-5"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-semibold text-gray-900">Tech Career Workshop</h3>
+                <p class="text-gray-600 text-sm">Tomorrow, 6:00 PM • Online</p>
+              </div>
+              <button onclick="joinEvent('tech-workshop')" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition-colors">Join</button>
+            </div>
+
+            <div class="flex items-center p-4 bg-purple-50 rounded-lg">
+              <div class="bg-purple-600 text-white p-2 rounded-lg mr-4">
+                <i data-lucide="users" class="h-5 w-5"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="font-semibold text-gray-900">Alumni Networking Night</h3>
+                <p class="text-gray-600 text-sm">Dec 20, 7:00 PM • Mumbai</p>
+              </div>
+              <button onclick="registerEvent('networking-night')" class="bg-purple-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-purple-700 transition-colors">Register</button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Stats Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
-          <div class="flex items-center justify-between">
-            <div>
-              <p class="text-sm font-medium text-gray-600">Connections</p>
-              <p class="text-2xl font-bold text-gray-900">24</p>
-            </div>
-            <div class="bg-blue-100 p-3 rounded-lg">
-              <i data-lucide="users" class="h-6 w-6 text-blue-600"></i>
-            </div>
+      <!-- Right Column -->
+      <div class="space-y-8">
+        <!-- Mentor Connections -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-bold text-gray-900">Your Mentors</h2>
+            <button onclick="findMoreMentors()" class="text-blue-600 hover:text-blue-700 font-medium">Find More</button>
           </div>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
-          <div class="flex items-center justify-between">
-            <div>
-              <p class="text-sm font-medium text-gray-600">Applications</p>
-              <p class="text-2xl font-bold text-gray-900">8</p>
-            </div>
-            <div class="bg-green-100 p-3 rounded-lg">
-              <i data-lucide="briefcase" class="h-6 w-6 text-green-600"></i>
-            </div>
-          </div>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
-          <div class="flex items-center justify-between">
-            <div>
-              <p class="text-sm font-medium text-gray-600">Events Attended</p>
-              <p class="text-2xl font-bold text-gray-900">12</p>
-            </div>
-            <div class="bg-purple-100 p-3 rounded-lg">
-              <i data-lucide="calendar" class="h-6 w-6 text-purple-600"></i>
-            </div>
-          </div>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
-          <div class="flex items-center justify-between">
-            <div>
-              <p class="text-sm font-medium text-gray-600">Profile Score</p>
-              <p class="text-2xl font-bold text-gray-900">85%</p>
-            </div>
-            <div class="bg-yellow-100 p-3 rounded-lg">
-              <i data-lucide="star" class="h-6 w-6 text-yellow-600"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Main Content Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <!-- Left Column -->
-        <div class="lg:col-span-2 space-y-8">
-          <!-- Recent Job Opportunities -->
-          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
-            <div class="flex items-center justify-between mb-6">
-              <h2 class="text-xl font-bold text-gray-900">Recent Job Opportunities</h2>
-              <button class="text-blue-600 hover:text-blue-700 font-medium">View All</button>
-            </div>
-            <div class="space-y-4">
-              <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
-                <div class="flex items-start justify-between">
-                  <div class="flex-1">
-                    <h3 class="font-semibold text-gray-900">Software Engineer Intern</h3>
-                    <p class="text-sm text-gray-600 mt-1">Google • Bangalore • Internship</p>
-                    <div class="flex items-center mt-2 space-x-4">
-                      <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">React</span>
-                      <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Node.js</span>
-                      <span class="text-xs text-gray-500">Posted 2 days ago</span>
-                    </div>
-                  </div>
-                  <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                    Apply
-                  </button>
-                </div>
+          <div class="space-y-4">
+            <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+              <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold mr-3">
+                SA
               </div>
-              <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
-                <div class="flex items-start justify-between">
-                  <div class="flex-1">
-                    <h3 class="font-semibold text-gray-900">Product Manager Trainee</h3>
-                    <p class="text-sm text-gray-600 mt-1">Microsoft • Mumbai • Full-time</p>
-                    <div class="flex items-center mt-2 space-x-4">
-                      <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Product</span>
-                      <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Strategy</span>
-                      <span class="text-xs text-gray-500">Posted 1 week ago</span>
-                    </div>
-                  </div>
-                  <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                    Apply
-                  </button>
-                </div>
+              <div class="flex-1">
+                <h3 class="font-semibold text-gray-900 text-sm">Sarah Anderson</h3>
+                <p class="text-gray-600 text-xs">Senior SDE at Amazon</p>
               </div>
-            </div>
-          </div>
-
-          <!-- Upcoming Events -->
-          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
-            <div class="flex items-center justify-between mb-6">
-              <h2 class="text-xl font-bold text-gray-900">Upcoming Events</h2>
-              <button class="text-blue-600 hover:text-blue-700 font-medium">View All</button>
-            </div>
-            <div class="space-y-4">
-              <div class="border border-gray-200 rounded-lg p-4">
-                <div class="flex items-center justify-between">
-                  <div>
-                    <h3 class="font-semibold text-gray-900">Tech Career Workshop</h3>
-                    <p class="text-sm text-gray-600 mt-1">Dec 15, 2024 • 6:00 PM IST • Online</p>
-                    <p class="text-xs text-blue-600 mt-2">150 students registered</p>
-                  </div>
-                  <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
-                    Registered
-                  </button>
-                </div>
-              </div>
-              <div class="border border-gray-200 rounded-lg p-4">
-                <div class="flex items-center justify-between">
-                  <div>
-                    <h3 class="font-semibold text-gray-900">Alumni Networking Night</h3>
-                    <p class="text-sm text-gray-600 mt-1">Dec 20, 2024 • 7:00 PM IST • Mumbai</p>
-                    <p class="text-xs text-gray-600 mt-2">80 attendees expected</p>
-                  </div>
-                  <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                    Register
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Column -->
-        <div class="space-y-8">
-          <!-- My Mentors -->
-          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
-            <div class="flex items-center justify-between mb-6">
-              <h2 class="text-xl font-bold text-gray-900">My Mentors</h2>
-              <button class="text-blue-600 hover:text-blue-700 font-medium">Find More</button>
-            </div>
-            <div class="space-y-4">
-              <div class="flex items-center space-x-3">
-                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
-                  RS
-                </div>
-                <div class="flex-1">
-                  <h3 class="font-semibold text-gray-900">Rahul Singh</h3>
-                  <p class="text-sm text-gray-600">Senior SDE at Amazon</p>
-                  <p class="text-xs text-blue-600">Available for chat</p>
-                </div>
-                <button class="p-2 text-gray-400 hover:text-blue-600 transition-colors">
-                  <i data-lucide="message-circle" class="h-5 w-5"></i>
-                </button>
-              </div>
-              <div class="flex items-center space-x-3">
-                <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
-                  PK
-                </div>
-                <div class="flex-1">
-                  <h3 class="font-semibold text-gray-900">Priya Kapoor</h3>
-                  <p class="text-sm text-gray-600">Product Manager at Google</p>
-                  <p class="text-xs text-gray-500">Last seen 2h ago</p>
-                </div>
-                <button class="p-2 text-gray-400 hover:text-blue-600 transition-colors">
-                  <i data-lucide="message-circle" class="h-5 w-5"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Quick Actions -->
-          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
-            <h2 class="text-xl font-bold text-gray-900 mb-6">Quick Actions</h2>
-            <div class="space-y-3">
-              <button class="w-full flex items-center px-4 py-3 text-left text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
-                <i data-lucide="user-plus" class="h-5 w-5 mr-3"></i>
-                Update Profile
+              <button onclick="chatWithMentor('sarah')" class="text-blue-600 hover:text-blue-700">
+                <i data-lucide="message-circle" class="h-5 w-5"></i>
               </button>
-              <button class="w-full flex items-center px-4 py-3 text-left text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
-                <i data-lucide="search" class="h-5 w-5 mr-3"></i>
-                Find Alumni
-              </button>
-              <button class="w-full flex items-center px-4 py-3 text-left text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
-                <i data-lucide="calendar-plus" class="h-5 w-5 mr-3"></i>
-                Schedule Meeting
-              </button>
-              <button class="w-full flex items-center px-4 py-3 text-left text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors">
-                <i data-lucide="file-text" class="h-5 w-5 mr-3"></i>
-                Resume Builder
+            </div>
+
+            <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+              <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white font-semibold mr-3">
+                RK
+              </div>
+              <div class="flex-1">
+                <h3 class="font-semibold text-gray-900 text-sm">Raj Kumar</h3>
+                <p class="text-gray-600 text-xs">Product Manager at Google</p>
+              </div>
+              <button onclick="chatWithMentor('raj')" class="text-blue-600 hover:text-blue-700">
+                <i data-lucide="message-circle" class="h-5 w-5"></i>
               </button>
             </div>
           </div>
+        </div>
 
-          <!-- Recent Activity -->
-          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
-            <h2 class="text-xl font-bold text-gray-900 mb-6">Recent Activity</h2>
-            <div class="space-y-4">
-              <div class="flex items-start space-x-3">
-                <div class="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                <div>
-                  <p class="text-sm text-gray-900">Applied to Software Engineer position at Google</p>
-                  <p class="text-xs text-gray-500">2 hours ago</p>
-                </div>
+        <!-- Recent Activity -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <h2 class="text-xl font-bold text-gray-900 mb-6">Recent Activity</h2>
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <div class="bg-green-100 p-2 rounded-full mr-3">
+                <i data-lucide="check" class="h-4 w-4 text-green-600"></i>
               </div>
-              <div class="flex items-start space-x-3">
-                <div class="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                <div>
-                  <p class="text-sm text-gray-900">Connected with Rahul Singh</p>
-                  <p class="text-xs text-gray-500">1 day ago</p>
-                </div>
+              <div>
+                <p class="text-sm text-gray-900">Application submitted to Google</p>
+                <p class="text-xs text-gray-600">2 hours ago</p>
               </div>
-              <div class="flex items-start space-x-3">
-                <div class="w-2 h-2 bg-purple-600 rounded-full mt-2"></div>
-                <div>
-                  <p class="text-sm text-gray-900">Registered for Tech Career Workshop</p>
-                  <p class="text-xs text-gray-500">3 days ago</p>
-                </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="bg-blue-100 p-2 rounded-full mr-3">
+                <i data-lucide="message-circle" class="h-4 w-4 text-blue-600"></i>
+              </div>
+              <div>
+                <p class="text-sm text-gray-900">New message from Sarah Anderson</p>
+                <p class="text-xs text-gray-600">5 hours ago</p>
+              </div>
+            </div>
+
+            <div class="flex items-start">
+              <div class="bg-purple-100 p-2 rounded-full mr-3">
+                <i data-lucide="calendar" class="h-4 w-4 text-purple-600"></i>
+              </div>
+              <div>
+                <p class="text-sm text-gray-900">Registered for Tech Workshop</p>
+                <p class="text-xs text-gray-600">1 day ago</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Achievement Progress -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <h2 class="text-xl font-bold text-gray-900 mb-6">Achievement Progress</h2>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-medium text-gray-700">Profile Master</span>
+                <span class="text-sm text-gray-600">85%</span>
+              </div>
+              <div class="bg-gray-200 rounded-full h-2">
+                <div class="bg-blue-600 h-2 rounded-full" style="width: 85%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-medium text-gray-700">Networking Pro</span>
+                <span class="text-sm text-gray-600">60%</span>
+              </div>
+              <div class="bg-gray-200 rounded-full h-2">
+                <div class="bg-green-600 h-2 rounded-full" style="width: 60%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-medium text-gray-700">Event Enthusiast</span>
+                <span class="text-sm text-gray-600">40%</span>
+              </div>
+              <div class="bg-gray-200 rounded-full h-2">
+                <div class="bg-purple-600 h-2 rounded-full" style="width: 40%"></div>
               </div>
             </div>
           </div>
@@ -314,70 +312,61 @@
   <!-- Chatbot -->
   <div id="chatbot-container" class="fixed bottom-6 right-6 z-50">
     <!-- Chatbot Button -->
-    <button id="chatbot-toggle" class="bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110">
+    <button id="chatbot-toggle" onclick="toggleChatbot()" class="bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110">
       <i data-lucide="message-circle" class="h-6 w-6"></i>
     </button>
 
     <!-- Chatbot Window -->
-    <div id="chatbot-window" class="hidden absolute bottom-16 right-0 w-80 bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden">
+    <div id="chatbot-window" class="hidden absolute bottom-16 right-0 w-80 bg-white rounded-xl shadow-2xl border border-gray-200">
       <!-- Header -->
-      <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center space-x-2">
-            <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-              <i data-lucide="bot" class="h-5 w-5"></i>
-            </div>
-            <div>
-              <h3 class="font-semibold">NextPath Assistant</h3>
-              <p class="text-xs text-blue-100">Online • Ready to help</p>
-            </div>
+      <div class="bg-blue-600 text-white p-4 rounded-t-xl flex justify-between items-center">
+        <div class="flex items-center">
+          <div class="bg-white/20 p-2 rounded-full mr-3">
+            <i data-lucide="bot" class="h-5 w-5"></i>
           </div>
-          <button id="chatbot-close" class="text-white/80 hover:text-white">
-            <i data-lucide="x" class="h-5 w-5"></i>
-          </button>
+          <div>
+            <h3 class="font-semibold">NextPath Assistant</h3>
+            <p class="text-xs opacity-90">Online</p>
+          </div>
         </div>
+        <button onclick="toggleChatbot()" class="text-white/80 hover:text-white">
+          <i data-lucide="x" class="h-5 w-5"></i>
+        </button>
       </div>
 
       <!-- Chat Messages -->
-      <div id="chat-messages" class="h-80 overflow-y-auto p-4 space-y-3">
-        <div class="flex items-start space-x-2">
-          <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+      <div id="chat-messages" class="h-64 overflow-y-auto p-4 space-y-3">
+        <div class="flex items-start">
+          <div class="bg-blue-100 p-2 rounded-full mr-2">
             <i data-lucide="bot" class="h-4 w-4 text-blue-600"></i>
           </div>
-          <div class="bg-gray-100 rounded-lg p-3 max-w-xs">
-            <p class="text-sm text-gray-800">Hi! I'm your NextPath assistant. How can I help you today?</p>
+          <div class="bg-gray-100 p-3 rounded-lg max-w-xs">
+            <p class="text-sm">Hi! I'm your NextPath assistant. How can I help you today?</p>
           </div>
         </div>
       </div>
 
-      <!-- Quick Actions -->
-      <div class="p-3 border-t border-gray-200">
-        <div class="flex flex-wrap gap-2 mb-3">
-          <button class="quick-question px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs hover:bg-blue-100 transition-colors">
-            Find mentors
+      <!-- Quick Questions -->
+      <div class="p-4 border-t border-gray-200">
+        <p class="text-xs text-gray-600 mb-2">Quick questions:</p>
+        <div class="space-y-2">
+          <button onclick="askQuestion('How do I find mentors?')" class="w-full text-left text-xs bg-gray-50 hover:bg-gray-100 p-2 rounded-lg transition-colors">
+            How do I find mentors?
           </button>
-          <button class="quick-question px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs hover:bg-blue-100 transition-colors">
-            Job opportunities
+          <button onclick="askQuestion('What job opportunities are available?')" class="w-full text-left text-xs bg-gray-50 hover:bg-gray-100 p-2 rounded-lg transition-colors">
+            What job opportunities are available?
           </button>
-          <button class="quick-question px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs hover:bg-blue-100 transition-colors">
-            Upcoming events
-          </button>
-          <button class="quick-question px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs hover:bg-blue-100 transition-colors">
-            Profile tips
+          <button onclick="askQuestion('How to improve my profile?')" class="w-full text-left text-xs bg-gray-50 hover:bg-gray-100 p-2 rounded-lg transition-colors">
+            How to improve my profile?
           </button>
         </div>
       </div>
 
       <!-- Input -->
       <div class="p-4 border-t border-gray-200">
-        <div class="flex space-x-2">
-          <input 
-            type="text" 
-            id="chat-input" 
-            placeholder="Type your message..." 
-            class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-          >
-          <button id="send-message" class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition-colors">
+        <div class="flex">
+          <input id="chat-input" type="text" placeholder="Type your message..." class="flex-1 border border-gray-300 rounded-l-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500">
+          <button onclick="sendMessage()" class="bg-blue-600 text-white px-4 py-2 rounded-r-lg hover:bg-blue-700 transition-colors">
             <i data-lucide="send" class="h-4 w-4"></i>
           </button>
         </div>
@@ -386,5 +375,8 @@
   </div>
 
   <script src="student.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
