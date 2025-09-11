@@ -1,6 +1,82 @@
+/* Custom styles for alumni dashboard */
+.impact-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.mentor-badge {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+button, .hover\:shadow-xl {
+  transition: all 0.3s ease;
+}
+
+/* Custom progress bars */
+.progress-bar {
+  transition: width 0.8s ease-in-out;
+}
+
+/* Notification badge animation */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.notification-badge {
+  animation: pulse 2s infinite;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Status indicators */
+.status-active {
+  position: relative;
+}
+
+.status-active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -8,48 +84,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #8b5cf6;
-  border-radius: 4px;
+  background: #c1c1c1;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7c3aed;
-}
-
-/* Hover effects */
-.hover-lift:hover {
-  transform: translateY(-2px);
-  transition: transform 0.2s ease;
-}
-
-/* Custom focus styles */
-.focus-ring:focus {
-  outline: none;
-  ring: 2px;
-  ring-color: #8b5cf6;
-  ring-offset: 2px;
-}
-
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Animation for cards */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.5s ease-out;
+  background: #a1a1a1;
 }
