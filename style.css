@@ -34,3 +34,12 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #2563eb;
 }
+
+/* Ensure navbar icon and text remain visible when scrolled */
+#navbar.bg-white\/95 .text-white {
+  color: #1f2937 !important;
+}
+
+#navbar.bg-white\/95 [data-lucide="graduation-cap"] {
+  color: #3b82f6 !important;
+}
