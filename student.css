@@ -1,3 +1,24 @@
+/* Custom styles for student dashboard */
+.chatbot-message {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth transitions for all interactive elements */
+button, .hover\:shadow-xl {
+  transition: all 0.3s ease;
+}
+
 /* Custom scrollbar for chat */
 #chat-messages::-webkit-scrollbar {
   width: 4px;
@@ -8,40 +29,47 @@
 }
 
 #chat-messages::-webkit-scrollbar-thumb {
-  background: #3b82f6;
+  background: #c1c1c1;
   border-radius: 2px;
 }
 
 #chat-messages::-webkit-scrollbar-thumb:hover {
-  background: #2563eb;
+  background: #a1a1a1;
 }
 
-/* Animation for chatbot */
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+/* Notification badge animation */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  50% {
+    transform: scale(1.1);
   }
 }
 
-.animate-slide-up {
-  animation: slideUp 0.3s ease-out;
+.notification-badge {
+  animation: pulse 2s infinite;
 }
 
-/* Hover effects */
-.hover-lift:hover {
+/* Card hover effects */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
   transform: translateY(-2px);
-  transition: transform 0.2s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Custom focus styles */
-.focus-ring:focus {
-  outline: none;
-  ring: 2px;
-  ring-color: #3b82f6;
-  ring-offset: 2px;
+/* Progress bar animations */
+.progress-bar {
+  transition: width 0.5s ease;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  #chatbot-window {
+    width: calc(100vw - 2rem);
+    right: 1rem;
+  }
 }
