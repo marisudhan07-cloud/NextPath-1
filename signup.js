@@ -1,189 +1,223 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize Lucide icons
   lucide.createIcons();
-
-  // User type selection
-  const studentTypeBtn = document.getElementById('student-type');
-  const alumniTypeBtn = document.getElementById('alumni-type');
-  const alumniFields = document.getElementById('alumni-fields');
-  const yearLabel = document.getElementById('year-label');
   
-  let selectedUserType = 'student';
+  // Add event listeners for user type selection
+  const userTypeRadios = document.querySelectorAll('input[name="userType"]');
+  userTypeRadios.forEach(radio => {
+    radio.addEventListener('change', handleUserTypeChange);
+  });
 
-  // Toggle user type
-  function selectUserType(type) {
-    selectedUserType = type;
-    
-    if (type === 'student') {
-      studentTypeBtn.classList.add('active', 'border-blue-600', 'bg-blue-50');
-      studentTypeBtn.classList.remove('border-gray-300', 'bg-white');
-      studentTypeBtn.querySelector('i').classList.add('text-blue-600');
-      studentTypeBtn.querySelector('i').classList.remove('text-gray-600');
-      studentTypeBtn.querySelector('span').classList.add('text-blue-600');
-      studentTypeBtn.querySelector('span').classList.remove('text-gray-600');
-      
-      alumniTypeBtn.classList.remove('active', 'border-purple-600', 'bg-purple-50');
-      alumniTypeBtn.classList.add('border-gray-300', 'bg-white');
-      alumniTypeBtn.querySelector('i').classList.remove('text-purple-600');
-      alumniTypeBtn.querySelector('i').classList.add('text-gray-600');
-      alumniTypeBtn.querySelector('span').classList.remove('text-purple-600');
-      alumniTypeBtn.querySelector('span').classList.add('text-gray-600');
-      
-      alumniFields.classList.add('hidden');
-      yearLabel.textContent = 'Expected Graduation';
-    } else {
-      alumniTypeBtn.classList.add('active', 'border-purple-600', 'bg-purple-50');
-      alumniTypeBtn.classList.remove('border-gray-300', 'bg-white');
-      alumniTypeBtn.querySelector('i').classList.add('text-purple-600');
-      alumniTypeBtn.querySelector('i').classList.remove('text-gray-600');
-      alumniTypeBtn.querySelector('span').classList.add('text-purple-600');
-      alumniTypeBtn.querySelector('span').classList.remove('text-gray-600');
-      
-      studentTypeBtn.classList.remove('active', 'border-blue-600', 'bg-blue-50');
-      studentTypeBtn.classList.add('border-gray-300', 'bg-white');
-      studentTypeBtn.querySelector('i').classList.remove('text-blue-600');
-      studentTypeBtn.querySelector('i').classList.add('text-gray-600');
-      studentTypeBtn.querySelector('span').classList.remove('text-blue-600');
-      studentTypeBtn.querySelector('span').classList.add('text-gray-600');
-      
-      alumniFields.classList.remove('hidden');
-      yearLabel.textContent = 'Graduation Year';
-    }
-    
-    lucide.createIcons();
+  // Add form validation
+  const form = document.getElementById('signupForm');
+  form.addEventListener('submit', handleFormSubmit);
+
+  // Add real-time validation
+  document.getElementById('email').addEventListener('blur', validateEmail);
+  document.getElementById('password').addEventListener('input', validatePassword);
+  document.getElementById('confirmPassword').addEventListener('input', validateConfirmPassword);
+});
+
+function handleUserTypeChange(event) {
+  const userType = event.target.value;
+  const studentFields = document.getElementById('studentFields');
+  const alumniFields = document.getElementById('alumniFields');
+
+  // Hide both field sets first
+  studentFields.classList.add('hidden');
+  alumniFields.classList.add('hidden');
+
+  // Show relevant fields based on selection
+  if (userType === 'student') {
+    studentFields.classList.remove('hidden');
+    // Make student fields required
+    setFieldsRequired('studentFields', true);
+    setFieldsRequired('alumniFields', false);
+  } else if (userType === 'alumni') {
+    alumniFields.classList.remove('hidden');
+    // Make alumni fields required
+    setFieldsRequired('alumniFields', true);
+    setFieldsRequired('studentFields', false);
   }
 
-  studentTypeBtn.addEventListener('click', () => selectUserType('student'));
-  alumniTypeBtn.addEventListener('click', () => selectUserType('alumni'));
+  // Refresh icons after DOM changes
+  lucide.createIcons();
+}
 
-  // Password visibility toggle
-  const passwordInput = document.getElementById('password');
-  const togglePasswordBtn = document.getElementById('toggle-password');
+function setFieldsRequired(containerId, required) {
+  const container = document.getElementById(containerId);
+  const inputs = container.querySelectorAll('input, select, textarea');
   
-  togglePasswordBtn.addEventListener('click', () => {
-    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-    passwordInput.setAttribute('type', type);
-    
-    const icon = togglePasswordBtn.querySelector('i');
-    if (type === 'password') {
-      icon.setAttribute('data-lucide', 'eye');
+  inputs.forEach(input => {
+    if (required) {
+      input.setAttribute('required', '');
     } else {
-      icon.setAttribute('data-lucide', 'eye-off');
+      input.removeAttribute('required');
     }
-    lucide.createIcons();
   });
+}
 
-  // Form validation
-  const form = document.getElementById('signup-form');
-  const passwordField = document.getElementById('password');
-  const confirmPasswordField = document.getElementById('confirm-password');
+function validateEmail() {
+  const email = document.getElementById('email');
+  const emailError = document.getElementById('emailError');
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  // Real-time password validation
-  function validatePasswords() {
-    const password = passwordField.value;
-    const confirmPassword = confirmPasswordField.value;
-    
-    if (password.length > 0 && password.length < 8) {
-      passwordField.classList.add('error');
-      passwordField.classList.remove('success');
-    } else if (password.length >= 8) {
-      passwordField.classList.remove('error');
-      passwordField.classList.add('success');
-    } else {
-      passwordField.classList.remove('error', 'success');
-    }
-    
-    if (confirmPassword.length > 0) {
-      if (password === confirmPassword && password.length >= 8) {
-        confirmPasswordField.classList.remove('error');
-        confirmPasswordField.classList.add('success');
-      } else {
-        confirmPasswordField.classList.add('error');
-        confirmPasswordField.classList.remove('success');
-      }
-    } else {
-      confirmPasswordField.classList.remove('error', 'success');
-    }
+  if (email.value && !emailRegex.test(email.value)) {
+    emailError.classList.remove('hidden');
+    email.classList.add('border-red-500');
+    return false;
+  } else {
+    emailError.classList.add('hidden');
+    email.classList.remove('border-red-500');
+    return true;
+  }
+}
+
+function validatePassword() {
+  const password = document.getElementById('password');
+  const passwordError = document.getElementById('passwordError');
+
+  if (password.value && password.value.length < 8) {
+    passwordError.classList.remove('hidden');
+    password.classList.add('border-red-500');
+    return false;
+  } else {
+    passwordError.classList.add('hidden');
+    password.classList.remove('border-red-500');
+    return true;
+  }
+}
+
+function validateConfirmPassword() {
+  const password = document.getElementById('password');
+  const confirmPassword = document.getElementById('confirmPassword');
+  const confirmPasswordError = document.getElementById('confirmPasswordError');
+
+  if (confirmPassword.value && password.value !== confirmPassword.value) {
+    confirmPasswordError.classList.remove('hidden');
+    confirmPassword.classList.add('border-red-500');
+    return false;
+  } else {
+    confirmPasswordError.classList.add('hidden');
+    confirmPassword.classList.remove('border-red-500');
+    return true;
+  }
+}
+
+function togglePassword(fieldId) {
+  const field = document.getElementById(fieldId);
+  const button = field.nextElementSibling.querySelector('i');
+
+  if (field.type === 'password') {
+    field.type = 'text';
+    button.setAttribute('data-lucide', 'eye-off');
+  } else {
+    field.type = 'password';
+    button.setAttribute('data-lucide', 'eye');
   }
 
-  passwordField.addEventListener('input', validatePasswords);
-  confirmPasswordField.addEventListener('input', validatePasswords);
+  lucide.createIcons();
+}
 
-  // Email validation
-  const emailField = form.querySelector('input[type="email"]');
-  emailField.addEventListener('input', () => {
-    const email = emailField.value;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    
-    if (email.length > 0) {
-      if (emailRegex.test(email)) {
-        emailField.classList.remove('error');
-        emailField.classList.add('success');
-      } else {
-        emailField.classList.add('error');
-        emailField.classList.remove('success');
-      }
+function handleFormSubmit(event) {
+  event.preventDefault();
+
+  // Validate all fields
+  const isEmailValid = validateEmail();
+  const isPasswordValid = validatePassword();
+  const isConfirmPasswordValid = validateConfirmPassword();
+
+  // Check if user type is selected
+  const userType = document.querySelector('input[name="userType"]:checked');
+  if (!userType) {
+    alert('Please select whether you are a Student or Alumni');
+    return;
+  }
+
+  // Check if terms are agreed
+  const agreeTerms = document.getElementById('agreeTerms');
+  if (!agreeTerms.checked) {
+    alert('Please agree to the Terms of Service and Privacy Policy');
+    return;
+  }
+
+  if (!isEmailValid || !isPasswordValid || !isConfirmPasswordValid) {
+    alert('Please fix the errors in the form before submitting');
+    return;
+  }
+
+  // Show loading state
+  const submitButton = event.target.querySelector('button[type="submit"]');
+  const originalText = submitButton.textContent;
+  submitButton.classList.add('loading');
+  submitButton.disabled = true;
+
+  // Simulate form submission
+  setTimeout(() => {
+    submitButton.classList.remove('loading');
+    submitButton.disabled = false;
+    submitButton.textContent = originalText;
+
+    // Show success message
+    alert(`Account created successfully!\n\nWelcome to NextPath, ${document.getElementById('firstName').value}!\n\nYou can now log in to your ${userType.value} dashboard.`);
+
+    // Redirect based on user type
+    if (userType.value === 'student') {
+      window.location.href = 'student.html';
     } else {
-      emailField.classList.remove('error', 'success');
+      window.location.href = 'alumni.html';
     }
-  });
+  }, 2000);
+}
 
-  // Form submission
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    
-    // Show loading state
-    submitBtn.classList.add('loading');
-    submitBtn.textContent = 'Creating Account...';
-    submitBtn.disabled = true;
-    
-    // Simulate API call
-    setTimeout(() => {
-      submitBtn.classList.remove('loading');
-      submitBtn.textContent = 'Account Created!';
-      submitBtn.classList.remove('from-blue-600', 'to-purple-600');
-      submitBtn.classList.add('from-green-600', 'to-green-700');
-      
-      // Show success message
-      setTimeout(() => {
-        alert(`Welcome to NextPath! Your ${selectedUserType} account has been created successfully.`);
-        
-        // Redirect based on user type
-        if (selectedUserType === 'student') {
-          window.location.href = '../student/index.html';
-        } else {
-          window.location.href = '../alumni/index.html';
-        }
-      }, 1000);
-    }, 2000);
-  });
+function showTerms() {
+  alert('Terms of Service:\n\n• Use the platform responsibly and professionally\n• Respect other users and maintain appropriate communication\n• Do not share false or misleading information\n• Protect your account credentials\n• Report any inappropriate behavior\n• Comply with all applicable laws and regulations\n\nFull terms available after account creation.');
+}
 
-  // Sign in link
-  const signInLink = document.querySelector('button.underline');
-  signInLink.addEventListener('click', () => {
-    alert('Sign in feature coming soon! For now, you can create a new account.');
-  });
+function showPrivacy() {
+  alert('Privacy Policy:\n\n• We protect your personal information with industry-standard security\n• Your data is used only to provide platform services\n• We do not sell your information to third parties\n• You can control your privacy settings after signup\n• You can request data deletion at any time\n• We use cookies to improve your experience\n\nFull privacy policy available after account creation.');
+}
 
-  // Terms and Privacy links
-  const termsLinks = document.querySelectorAll('a[href="#"]');
-  termsLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (link.textContent.includes('Terms')) {
-        alert('Terms of Service: By using NextPath, you agree to connect respectfully with fellow students and alumni, maintain professional conduct, and use the platform for educational and career development purposes only.');
+// Form field animations
+function animateFieldEntry() {
+  const fields = document.querySelectorAll('.space-y-6 > div');
+  fields.forEach((field, index) => {
+    field.style.animationDelay = `${index * 0.1}s`;
+    field.classList.add('field-group');
+  });
+}
+
+// Initialize animations when page loads
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(animateFieldEntry, 300);
+});
+
+// Auto-focus first field
+window.addEventListener('load', () => {
+  document.getElementById('firstName').focus();
+});
+
+// Enhanced form validation with real-time feedback
+function addRealTimeValidation() {
+  const inputs = document.querySelectorAll('input, select, textarea');
+  
+  inputs.forEach(input => {
+    input.addEventListener('input', () => {
+      if (input.checkValidity()) {
+        input.classList.remove('border-red-500');
+        input.classList.add('border-green-500');
       } else {
-        alert('Privacy Policy: NextPath protects your personal information and only shares necessary details with verified alumni and students for networking purposes. Your data is secure and never sold to third parties.');
+        input.classList.remove('border-green-500');
+        input.classList.add('border-red-500');
       }
     });
-  });
 
-  // Add smooth animations to form elements
-  const formElements = form.querySelectorAll('input, select, button');
-  formElements.forEach((element, index) => {
-    element.style.animationDelay = `${index * 0.1}s`;
-    element.classList.add('animate-fade-in-up');
+    input.addEventListener('blur', () => {
+      setTimeout(() => {
+        input.classList.remove('border-green-500', 'border-red-500');
+      }, 2000);
+    });
   });
-});
+}
+
+// Initialize enhanced validation
+document.addEventListener('DOMContentLoaded', addRealTimeValidation);
