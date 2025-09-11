@@ -10,380 +10,356 @@
 </head>
 <body class="bg-gray-50">
   <!-- Navigation -->
-  <nav class="bg-white shadow-lg border-b border-gray-200">
+  <nav class="bg-white shadow-lg sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center">
           <i data-lucide="graduation-cap" class="h-8 w-8 text-blue-600"></i>
           <span class="ml-2 text-xl font-bold text-gray-900">NextPath</span>
-          <span class="ml-2 text-sm text-purple-600 bg-purple-100 px-2 py-1 rounded-full">Alumni</span>
+          <span class="ml-4 px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Alumni</span>
         </div>
         
         <div class="flex items-center space-x-4">
-          <button class="p-2 text-gray-600 hover:text-blue-600 transition-colors">
-            <i data-lucide="bell" class="h-5 w-5"></i>
-          </button>
-          <button class="p-2 text-gray-600 hover:text-blue-600 transition-colors">
-            <i data-lucide="mail" class="h-5 w-5"></i>
+          <button onclick="showNotifications()" class="relative p-2 text-gray-600 hover:text-blue-600 transition-colors">
+            <i data-lucide="bell" class="h-6 w-6"></i>
+            <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">5</span>
           </button>
           <div class="flex items-center space-x-2">
-            <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white font-semibold text-sm">
-              SA
+            <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white font-semibold text-sm">
+              MA
             </div>
-            <span class="text-sm font-medium text-gray-700">Sarah Alumni</span>
+            <span class="text-gray-700 font-medium">Maria Alumni</span>
           </div>
-          <button onclick="window.location.href='../home/index.html'" class="px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
-            Logout
+          <button onclick="showProfileMenu()" class="p-2 text-gray-600 hover:text-blue-600 transition-colors">
+            <i data-lucide="chevron-down" class="h-4 w-4"></i>
           </button>
         </div>
       </div>
     </div>
   </nav>
 
-  <div class="flex">
-    <!-- Sidebar -->
-    <div class="w-64 bg-white shadow-lg h-screen sticky top-0">
-      <div class="p-6">
-        <nav class="space-y-2">
-          <a href="#dashboard" class="flex items-center px-4 py-3 text-purple-600 bg-purple-50 rounded-lg font-medium">
-            <i data-lucide="home" class="h-5 w-5 mr-3"></i>
-            Dashboard
-          </a>
-          <a href="#profile" class="flex items-center px-4 py-3 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors">
-            <i data-lucide="user" class="h-5 w-5 mr-3"></i>
-            My Profile
-          </a>
-          <a href="#mentoring" class="flex items-center px-4 py-3 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors">
-            <i data-lucide="users" class="h-5 w-5 mr-3"></i>
-            My Mentees
-          </a>
-          <a href="#jobs" class="flex items-center px-4 py-3 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors">
-            <i data-lucide="briefcase" class="h-5 w-5 mr-3"></i>
-            Post Jobs
-          </a>
-          <a href="#events" class="flex items-center px-4 py-3 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors">
-            <i data-lucide="calendar" class="h-5 w-5 mr-3"></i>
-            Events & Workshops
-          </a>
-          <a href="#network" class="flex items-center px-4 py-3 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors">
-            <i data-lucide="globe" class="h-5 w-5 mr-3"></i>
-            Alumni Network
-          </a>
-          <a href="#donations" class="flex items-center px-4 py-3 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors">
-            <i data-lucide="heart" class="h-5 w-5 mr-3"></i>
-            Give Back
-          </a>
-          <a href="#analytics" class="flex items-center px-4 py-3 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-colors">
-            <i data-lucide="bar-chart" class="h-5 w-5 mr-3"></i>
-            Impact Analytics
-          </a>
-        </nav>
+  <!-- Main Content -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Welcome Section -->
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-gray-900 mb-2">Welcome back, Maria! 🌟</h1>
+      <p class="text-gray-600">Continue making a difference in students' lives and growing your professional network.</p>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm font-medium text-gray-600">Active Mentees</p>
+            <p class="text-2xl font-bold text-gray-900">8</p>
+          </div>
+          <div class="bg-blue-100 p-3 rounded-lg">
+            <i data-lucide="users" class="h-6 w-6 text-blue-600"></i>
+          </div>
+        </div>
+        <p class="text-sm text-blue-600 mt-2">+2 this month</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm font-medium text-gray-600">Jobs Posted</p>
+            <p class="text-2xl font-bold text-gray-900">15</p>
+          </div>
+          <div class="bg-green-100 p-3 rounded-lg">
+            <i data-lucide="briefcase" class="h-6 w-6 text-green-600"></i>
+          </div>
+        </div>
+        <p class="text-sm text-green-600 mt-2">120 applications</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm font-medium text-gray-600">Events Hosted</p>
+            <p class="text-2xl font-bold text-gray-900">6</p>
+          </div>
+          <div class="bg-purple-100 p-3 rounded-lg">
+            <i data-lucide="calendar" class="h-6 w-6 text-purple-600"></i>
+          </div>
+        </div>
+        <p class="text-sm text-purple-600 mt-2">Next: Dec 20</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+        <div class="flex items-center justify-between">
+          <div>
+            <p class="text-sm font-medium text-gray-600">Impact Score</p>
+            <p class="text-2xl font-bold text-gray-900">92</p>
+          </div>
+          <div class="bg-orange-100 p-3 rounded-lg">
+            <i data-lucide="award" class="h-6 w-6 text-orange-600"></i>
+          </div>
+        </div>
+        <p class="text-sm text-orange-600 mt-2">Top 10% mentor</p>
       </div>
     </div>
 
-    <!-- Main Content -->
-    <div class="flex-1 p-8">
-      <!-- Welcome Section -->
-      <div class="mb-8">
-        <h1 class="text-3xl font-bold text-gray-900 mb-2">Welcome back, Sarah! 🌟</h1>
-        <p class="text-gray-600">Thank you for giving back to the NextPath community. Here's your impact overview.</p>
+    <!-- Main Dashboard Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Left Column -->
+      <div class="lg:col-span-2 space-y-8">
+        <!-- Quick Actions -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <h2 class="text-xl font-bold text-gray-900 mb-6">Quick Actions</h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <button onclick="reviewMentorRequests()" class="flex flex-col items-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
+              <i data-lucide="user-check" class="h-8 w-8 text-blue-600 mb-2"></i>
+              <span class="text-sm font-medium text-gray-900">Review Requests</span>
+            </button>
+            <button onclick="postJob()" class="flex flex-col items-center p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors">
+              <i data-lucide="plus-circle" class="h-8 w-8 text-green-600 mb-2"></i>
+              <span class="text-sm font-medium text-gray-900">Post Job</span>
+            </button>
+            <button onclick="hostEvent()" class="flex flex-col items-center p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors">
+              <i data-lucide="calendar-plus" class="h-8 w-8 text-purple-600 mb-2"></i>
+              <span class="text-sm font-medium text-gray-900">Host Event</span>
+            </button>
+            <button onclick="viewAnalytics()" class="flex flex-col items-center p-4 bg-orange-50 rounded-lg hover:bg-orange-100 transition-colors">
+              <i data-lucide="bar-chart" class="h-8 w-8 text-orange-600 mb-2"></i>
+              <span class="text-sm font-medium text-gray-900">Analytics</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Pending Mentor Requests -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-bold text-gray-900">Pending Mentor Requests</h2>
+            <span class="bg-red-100 text-red-800 text-sm px-3 py-1 rounded-full">3 New</span>
+          </div>
+          <div class="space-y-4">
+            <div class="border border-gray-200 rounded-lg p-4">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center">
+                  <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold mr-3">
+                    AK
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-gray-900">Arjun Kumar</h3>
+                    <p class="text-gray-600 text-sm">Computer Science • Final Year</p>
+                  </div>
+                </div>
+                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">New</span>
+              </div>
+              <p class="text-gray-700 text-sm mb-3">"Hi Maria! I'm interested in product management and would love to learn from your experience at Google. Could you mentor me?"</p>
+              <div class="flex space-x-2">
+                <button onclick="acceptMentorRequest('arjun')" class="bg-green-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-green-700 transition-colors">Accept</button>
+                <button onclick="declineMentorRequest('arjun')" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm hover:bg-gray-400 transition-colors">Decline</button>
+                <button onclick="viewProfile('arjun')" class="text-blue-600 hover:text-blue-700 px-4 py-2 text-sm">View Profile</button>
+              </div>
+            </div>
+
+            <div class="border border-gray-200 rounded-lg p-4">
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center">
+                  <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-semibold mr-3">
+                    PS
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-gray-900">Priya Singh</h3>
+                    <p class="text-gray-600 text-sm">MBA • 2nd Year</p>
+                  </div>
+                </div>
+                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">1 day ago</span>
+              </div>
+              <p class="text-gray-700 text-sm mb-3">"Looking for guidance on transitioning from engineering to product management. Your career path is inspiring!"</p>
+              <div class="flex space-x-2">
+                <button onclick="acceptMentorRequest('priya')" class="bg-green-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-green-700 transition-colors">Accept</button>
+                <button onclick="declineMentorRequest('priya')" class="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm hover:bg-gray-400 transition-colors">Decline</button>
+                <button onclick="viewProfile('priya')" class="text-blue-600 hover:text-blue-700 px-4 py-2 text-sm">View Profile</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Job Postings -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-bold text-gray-900">Your Recent Job Postings</h2>
+            <button onclick="manageAllJobs()" class="text-blue-600 hover:text-blue-700 font-medium">Manage All</button>
+          </div>
+          <div class="space-y-4">
+            <div class="border border-gray-200 rounded-lg p-4">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-semibold text-gray-900">Senior Product Manager</h3>
+                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Active</span>
+              </div>
+              <p class="text-gray-600 text-sm mb-2">Google • Bangalore • Full-time</p>
+              <div class="flex justify-between items-center">
+                <div class="flex space-x-4 text-sm text-gray-600">
+                  <span>45 Applications</span>
+                  <span>12 Shortlisted</span>
+                  <span>Posted 5 days ago</span>
+                </div>
+                <button onclick="manageJob('senior-pm')" class="text-blue-600 hover:text-blue-700 text-sm">Manage</button>
+              </div>
+            </div>
+
+            <div class="border border-gray-200 rounded-lg p-4">
+              <div class="flex justify-between items-start mb-2">
+                <h3 class="font-semibold text-gray-900">Product Intern</h3>
+                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Reviewing</span>
+              </div>
+              <p class="text-gray-600 text-sm mb-2">Google • Remote • Internship</p>
+              <div class="flex justify-between items-center">
+                <div class="flex space-x-4 text-sm text-gray-600">
+                  <span>28 Applications</span>
+                  <span>8 Shortlisted</span>
+                  <span>Posted 2 days ago</span>
+                </div>
+                <button onclick="manageJob('product-intern')" class="text-blue-600 hover:text-blue-700 text-sm">Manage</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Stats Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
-          <div class="flex items-center justify-between">
+      <!-- Right Column -->
+      <div class="space-y-8">
+        <!-- Current Mentees -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-bold text-gray-900">Current Mentees</h2>
+            <span class="text-sm text-gray-600">8 Active</span>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+              <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold mr-3">
+                RK
+              </div>
+              <div class="flex-1">
+                <h3 class="font-semibold text-gray-900 text-sm">Rahul Kumar</h3>
+                <p class="text-gray-600 text-xs">Software Engineering</p>
+                <p class="text-green-600 text-xs">Last chat: 2 hours ago</p>
+              </div>
+              <button onclick="chatWithMentee('rahul')" class="text-blue-600 hover:text-blue-700">
+                <i data-lucide="message-circle" class="h-5 w-5"></i>
+              </button>
+            </div>
+
+            <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+              <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white font-semibold mr-3">
+                SP
+              </div>
+              <div class="flex-1">
+                <h3 class="font-semibold text-gray-900 text-sm">Sneha Patel</h3>
+                <p class="text-gray-600 text-xs">Product Management</p>
+                <p class="text-orange-600 text-xs">Session due tomorrow</p>
+              </div>
+              <button onclick="chatWithMentee('sneha')" class="text-blue-600 hover:text-blue-700">
+                <i data-lucide="message-circle" class="h-5 w-5"></i>
+              </button>
+            </div>
+
+            <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+              <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center text-white font-semibold mr-3">
+                VG
+              </div>
+              <div class="flex-1">
+                <h3 class="font-semibold text-gray-900 text-sm">Vikram Gupta</h3>
+                <p class="text-gray-600 text-xs">Data Science</p>
+                <p class="text-gray-500 text-xs">Last chat: 1 day ago</p>
+              </div>
+              <button onclick="chatWithMentee('vikram')" class="text-blue-600 hover:text-blue-700">
+                <i data-lucide="message-circle" class="h-5 w-5"></i>
+              </button>
+            </div>
+          </div>
+          <button onclick="viewAllMentees()" class="w-full mt-4 text-blue-600 hover:text-blue-700 text-sm font-medium">View All Mentees</button>
+        </div>
+
+        <!-- Upcoming Events -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-bold text-gray-900">Your Events</h2>
+            <button onclick="manageEvents()" class="text-blue-600 hover:text-blue-700 font-medium">Manage</button>
+          </div>
+          <div class="space-y-4">
+            <div class="border-l-4 border-blue-500 pl-4 py-2">
+              <h3 class="font-semibold text-gray-900 text-sm">Product Management Workshop</h3>
+              <p class="text-gray-600 text-xs">Dec 20, 7:00 PM • 45 registered</p>
+              <button onclick="manageEvent('pm-workshop')" class="text-blue-600 hover:text-blue-700 text-xs mt-1">Manage Event</button>
+            </div>
+
+            <div class="border-l-4 border-green-500 pl-4 py-2">
+              <h3 class="font-semibold text-gray-900 text-sm">Career Transition Panel</h3>
+              <p class="text-gray-600 text-xs">Jan 5, 6:00 PM • 32 registered</p>
+              <button onclick="manageEvent('career-panel')" class="text-green-600 hover:text-green-700 text-xs mt-1">Manage Event</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Impact Analytics -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <h2 class="text-xl font-bold text-gray-900 mb-6">Your Impact</h2>
+          <div class="space-y-4">
             <div>
-              <p class="text-sm font-medium text-gray-600">Active Mentees</p>
-              <p class="text-2xl font-bold text-gray-900">12</p>
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-medium text-gray-700">Students Helped</span>
+                <span class="text-sm text-gray-600">47</span>
+              </div>
+              <div class="bg-gray-200 rounded-full h-2">
+                <div class="bg-blue-600 h-2 rounded-full" style="width: 94%"></div>
+              </div>
             </div>
-            <div class="bg-purple-100 p-3 rounded-lg">
-              <i data-lucide="users" class="h-6 w-6 text-purple-600"></i>
-            </div>
-          </div>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
-          <div class="flex items-center justify-between">
+
             <div>
-              <p class="text-sm font-medium text-gray-600">Jobs Posted</p>
-              <p class="text-2xl font-bold text-gray-900">5</p>
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-medium text-gray-700">Job Placements</span>
+                <span class="text-sm text-gray-600">23</span>
+              </div>
+              <div class="bg-gray-200 rounded-full h-2">
+                <div class="bg-green-600 h-2 rounded-full" style="width: 76%"></div>
+              </div>
             </div>
-            <div class="bg-blue-100 p-3 rounded-lg">
-              <i data-lucide="briefcase" class="h-6 w-6 text-blue-600"></i>
-            </div>
-          </div>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
-          <div class="flex items-center justify-between">
+
             <div>
-              <p class="text-sm font-medium text-gray-600">Events Hosted</p>
-              <p class="text-2xl font-bold text-gray-900">8</p>
-            </div>
-            <div class="bg-green-100 p-3 rounded-lg">
-              <i data-lucide="calendar" class="h-6 w-6 text-green-600"></i>
-            </div>
-          </div>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
-          <div class="flex items-center justify-between">
-            <div>
-              <p class="text-sm font-medium text-gray-600">Impact Score</p>
-              <p class="text-2xl font-bold text-gray-900">92%</p>
-            </div>
-            <div class="bg-yellow-100 p-3 rounded-lg">
-              <i data-lucide="star" class="h-6 w-6 text-yellow-600"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Main Content Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <!-- Left Column -->
-        <div class="lg:col-span-2 space-y-8">
-          <!-- Recent Mentoring Requests -->
-          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
-            <div class="flex items-center justify-between mb-6">
-              <h2 class="text-xl font-bold text-gray-900">Recent Mentoring Requests</h2>
-              <button class="text-purple-600 hover:text-purple-700 font-medium">View All</button>
-            </div>
-            <div class="space-y-4">
-              <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
-                <div class="flex items-start justify-between">
-                  <div class="flex items-start space-x-3">
-                    <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
-                      AK
-                    </div>
-                    <div class="flex-1">
-                      <h3 class="font-semibold text-gray-900">Arjun Kumar</h3>
-                      <p class="text-sm text-gray-600 mt-1">Computer Science • Final Year</p>
-                      <p class="text-sm text-gray-700 mt-2">"Looking for guidance on transitioning to product management from engineering."</p>
-                      <div class="flex items-center mt-2 space-x-4">
-                        <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Product Management</span>
-                        <span class="text-xs text-gray-500">Requested 2 days ago</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex space-x-2">
-                    <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
-                      Accept
-                    </button>
-                    <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
-                      Decline
-                    </button>
-                  </div>
-                </div>
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-sm font-medium text-gray-700">Event Attendance</span>
+                <span class="text-sm text-gray-600">156</span>
               </div>
-              <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
-                <div class="flex items-start justify-between">
-                  <div class="flex items-start space-x-3">
-                    <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
-                      PS
-                    </div>
-                    <div class="flex-1">
-                      <h3 class="font-semibold text-gray-900">Priya Sharma</h3>
-                      <p class="text-sm text-gray-600 mt-1">Information Technology • 3rd Year</p>
-                      <p class="text-sm text-gray-700 mt-2">"Need help with interview preparation for software engineering roles."</p>
-                      <div class="flex items-center mt-2 space-x-4">
-                        <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Interview Prep</span>
-                        <span class="text-xs text-gray-500">Requested 1 week ago</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="flex space-x-2">
-                    <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
-                      Accept
-                    </button>
-                    <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
-                      Decline
-                    </button>
-                  </div>
-                </div>
+              <div class="bg-gray-200 rounded-full h-2">
+                <div class="bg-purple-600 h-2 rounded-full" style="width: 88%"></div>
               </div>
             </div>
           </div>
-
-          <!-- Job Postings -->
-          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
-            <div class="flex items-center justify-between mb-6">
-              <h2 class="text-xl font-bold text-gray-900">My Job Postings</h2>
-              <button class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
-                Post New Job
-              </button>
-            </div>
-            <div class="space-y-4">
-              <div class="border border-gray-200 rounded-lg p-4">
-                <div class="flex items-start justify-between">
-                  <div class="flex-1">
-                    <h3 class="font-semibold text-gray-900">Senior Software Engineer</h3>
-                    <p class="text-sm text-gray-600 mt-1">Microsoft • Bangalore • Full-time</p>
-                    <div class="flex items-center mt-2 space-x-4">
-                      <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">React</span>
-                      <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">Node.js</span>
-                      <span class="text-xs text-green-600">24 applications</span>
-                    </div>
-                  </div>
-                  <div class="flex space-x-2">
-                    <button class="px-3 py-1 text-sm bg-blue-100 text-blue-600 rounded hover:bg-blue-200 transition-colors">
-                      View Applications
-                    </button>
-                    <button class="px-3 py-1 text-sm bg-gray-100 text-gray-600 rounded hover:bg-gray-200 transition-colors">
-                      Edit
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="border border-gray-200 rounded-lg p-4">
-                <div class="flex items-start justify-between">
-                  <div class="flex-1">
-                    <h3 class="font-semibold text-gray-900">Product Manager Intern</h3>
-                    <p class="text-sm text-gray-600 mt-1">Microsoft • Mumbai • Internship</p>
-                    <div class="flex items-center mt-2 space-x-4">
-                      <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Product</span>
-                      <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">Strategy</span>
-                      <span class="text-xs text-green-600">18 applications</span>
-                    </div>
-                  </div>
-                  <div class="flex space-x-2">
-                    <button class="px-3 py-1 text-sm bg-blue-100 text-blue-600 rounded hover:bg-blue-200 transition-colors">
-                      View Applications
-                    </button>
-                    <button class="px-3 py-1 text-sm bg-gray-100 text-gray-600 rounded hover:bg-gray-200 transition-colors">
-                      Edit
-                    </button>
-                  </div>
-                </div>
+          
+          <div class="mt-6 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg">
+            <div class="flex items-center">
+              <i data-lucide="award" class="h-6 w-6 text-orange-500 mr-2"></i>
+              <div>
+                <p class="font-semibold text-gray-900 text-sm">Top Mentor Badge</p>
+                <p class="text-gray-600 text-xs">You're in the top 10% of mentors!</p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Right Column -->
-        <div class="space-y-8">
-          <!-- Current Mentees -->
-          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
-            <div class="flex items-center justify-between mb-6">
-              <h2 class="text-xl font-bold text-gray-900">Current Mentees</h2>
-              <button class="text-purple-600 hover:text-purple-700 font-medium">View All</button>
-            </div>
-            <div class="space-y-4">
-              <div class="flex items-center space-x-3">
-                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
-                  RK
-                </div>
-                <div class="flex-1">
-                  <h3 class="font-semibold text-gray-900">Rahul Kumar</h3>
-                  <p class="text-sm text-gray-600">Computer Science • Final Year</p>
-                  <p class="text-xs text-green-600">Next session: Tomorrow 3 PM</p>
-                </div>
-                <button class="p-2 text-gray-400 hover:text-purple-600 transition-colors">
-                  <i data-lucide="message-circle" class="h-5 w-5"></i>
-                </button>
-              </div>
-              <div class="flex items-center space-x-3">
-                <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-semibold">
-                  SM
-                </div>
-                <div class="flex-1">
-                  <h3 class="font-semibold text-gray-900">Sneha Mehta</h3>
-                  <p class="text-sm text-gray-600">Information Technology • 3rd Year</p>
-                  <p class="text-xs text-gray-500">Last session: 3 days ago</p>
-                </div>
-                <button class="p-2 text-gray-400 hover:text-purple-600 transition-colors">
-                  <i data-lucide="message-circle" class="h-5 w-5"></i>
-                </button>
-              </div>
-              <div class="flex items-center space-x-3">
-                <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
-                  VG
-                </div>
-                <div class="flex-1">
-                  <h3 class="font-semibold text-gray-900">Vikram Gupta</h3>
-                  <p class="text-sm text-gray-600">Electronics • 2nd Year</p>
-                  <p class="text-xs text-blue-600">Available for chat</p>
-                </div>
-                <button class="p-2 text-gray-400 hover:text-purple-600 transition-colors">
-                  <i data-lucide="message-circle" class="h-5 w-5"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Quick Actions -->
-          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
-            <h2 class="text-xl font-bold text-gray-900 mb-6">Quick Actions</h2>
-            <div class="space-y-3">
-              <button class="w-full flex items-center px-4 py-3 text-left text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors">
-                <i data-lucide="user-plus" class="h-5 w-5 mr-3"></i>
-                Update Profile
-              </button>
-              <button class="w-full flex items-center px-4 py-3 text-left text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors">
-                <i data-lucide="plus-circle" class="h-5 w-5 mr-3"></i>
-                Post Job Opening
-              </button>
-              <button class="w-full flex items-center px-4 py-3 text-left text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors">
-                <i data-lucide="calendar-plus" class="h-5 w-5 mr-3"></i>
-                Schedule Workshop
-              </button>
-              <button class="w-full flex items-center px-4 py-3 text-left text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-colors">
-                <i data-lucide="heart" class="h-5 w-5 mr-3"></i>
-                Make Donation
-              </button>
-            </div>
-          </div>
-
-          <!-- Impact Summary -->
-          <div class="bg-gradient-to-br from-purple-600 to-blue-600 rounded-xl shadow-lg p-6 text-white">
-            <h2 class="text-xl font-bold mb-4">Your Impact This Month</h2>
-            <div class="space-y-4">
-              <div class="flex items-center justify-between">
-                <span class="text-purple-100">Students Mentored</span>
-                <span class="font-bold">12</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="text-purple-100">Hours Contributed</span>
-                <span class="font-bold">24</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="text-purple-100">Jobs Posted</span>
-                <span class="font-bold">5</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="text-purple-100">Events Hosted</span>
-                <span class="font-bold">2</span>
-              </div>
-            </div>
-            <div class="mt-6 pt-4 border-t border-purple-400">
-              <p class="text-sm text-purple-100">Thank you for making a difference! 🌟</p>
-            </div>
-          </div>
-
-          <!-- Recent Activity -->
-          <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
-            <h2 class="text-xl font-bold text-gray-900 mb-6">Recent Activity</h2>
-            <div class="space-y-4">
-              <div class="flex items-start space-x-3">
-                <div class="w-2 h-2 bg-purple-600 rounded-full mt-2"></div>
-                <div>
-                  <p class="text-sm text-gray-900">Accepted mentoring request from Arjun Kumar</p>
-                  <p class="text-xs text-gray-500">2 hours ago</p>
-                </div>
-              </div>
-              <div class="flex items-start space-x-3">
-                <div class="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
-                <div>
-                  <p class="text-sm text-gray-900">Posted Senior Software Engineer position</p>
-                  <p class="text-xs text-gray-500">1 day ago</p>
-                </div>
-              </div>
-              <div class="flex items-start space-x-3">
-                <div class="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                <div>
-                  <p class="text-sm text-gray-900">Completed mentoring session with Rahul</p>
-                  <p class="text-xs text-gray-500">3 days ago</p>
-                </div>
-              </div>
-            </div>
+        <!-- Give Back Section -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <h2 class="text-xl font-bold text-gray-900 mb-6">Give Back</h2>
+          <div class="space-y-3">
+            <button onclick="donateToScholarship()" class="w-full flex items-center p-3 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
+              <i data-lucide="heart" class="h-5 w-5 text-blue-600 mr-3"></i>
+              <span class="text-sm font-medium text-gray-900">Scholarship Fund</span>
+            </button>
+            
+            <button onclick="sponsorEvent()" class="w-full flex items-center p-3 bg-green-50 rounded-lg hover:bg-green-100 transition-colors">
+              <i data-lucide="calendar" class="h-5 w-5 text-green-600 mr-3"></i>
+              <span class="text-sm font-medium text-gray-900">Sponsor Event</span>
+            </button>
+            
+            <button onclick="resourceDonation()" class="w-full flex items-center p-3 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors">
+              <i data-lucide="book" class="h-5 w-5 text-purple-600 mr-3"></i>
+              <span class="text-sm font-medium text-gray-900">Donate Resources</span>
+            </button>
           </div>
         </div>
       </div>
@@ -391,5 +367,8 @@
   </div>
 
   <script src="alumni.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
