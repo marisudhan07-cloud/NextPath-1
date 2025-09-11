@@ -20,10 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
     navbar.classList.toggle('backdrop-blur-md', scrolled);
     navbar.classList.toggle('shadow-lg', scrolled);
     navbar.classList.toggle('bg-transparent', !scrolled);
-    logoIcon.classList.toggle('text-blue-600', scrolled);
-    logoIcon.classList.toggle('text-white', !scrolled);
-    logoText.classList.toggle('text-gray-900', scrolled);
-    logoText.classList.toggle('text-white', !scrolled);
+    
+    // Keep both icon and text visible when scrolled
+    if (scrolled) {
+      logoIcon.style.color = '#3b82f6';
+      logoText.style.color = '#1f2937';
+    } else {
+      logoIcon.style.color = '#ffffff';
+      logoText.style.color = '#ffffff';
+    }
+    
     navLinks.forEach(link => {
       link.classList.toggle('text-gray-700', scrolled);
       link.classList.toggle('hover:text-blue-600', scrolled);
@@ -85,3 +91,38 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(counter.element);
   });
 });
+
+// Functional buttons for home page
+function showDemo() {
+  alert('Demo video will be available soon! For now, explore our platform by signing up.');
+}
+
+function registerEvent(eventType) {
+  const eventNames = {
+    'tech-workshop': 'Tech Career Workshop',
+    'networking-night': 'Alumni Networking Night',
+    'startup-pitch': 'Startup Pitch Session'
+  };
+  
+  alert(`Thank you for your interest in ${eventNames[eventType]}! Registration confirmation will be sent to your email.`);
+}
+
+function showSuccessStories() {
+  alert('Success Stories section coming soon! Check out our testimonials above for now.');
+}
+
+function showHelpCenter() {
+  alert('Help Center: For immediate assistance, please contact support@nextpath.com');
+}
+
+function showContactUs() {
+  alert('Contact Us:\nEmail: support@nextpath.com\nPhone: +91-9876543210\nAddress: NextPath HQ, Tech Park, Bangalore');
+}
+
+function showPrivacyPolicy() {
+  alert('Privacy Policy: We protect your data with industry-standard security measures. Full policy available after signup.');
+}
+
+function showTermsOfService() {
+  alert('Terms of Service: By using NextPath, you agree to our community guidelines and platform rules. Full terms available after signup.');
+}
