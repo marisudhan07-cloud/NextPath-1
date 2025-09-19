@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alumni Directory</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #e3eafc, #ffffff);
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 20px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #001f4d, #003366);
+      color: white;
+      width: 100%;
+      max-width: 900px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .search-container {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .search-container input,
+    .search-container select {
+      flex: 1;
+      padding: 12px 15px;
+      border-radius: 8px;
+      border: 2px solid #003366;
+      font-size: 1rem;
+      min-width: 180px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .results {
+      margin-top: 30px;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .alumni-card {
+      background: linear-gradient(135deg, #ffffff, #e6ecff);
+      border: 1px solid #99b3ff;
+      padding: 18px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .alumni-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0px 6px 14px rgba(0,0,0,0.2);
+    }
+
+    .alumni-card h3 {
+      margin-bottom: 8px;
+      color: #001f4d;
+    }
+
+    .view-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 14px;
+      background: #003366;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: 0.3s;
+    }
+
+    .view-btn:hover {
+      background: #001f4d;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0px 6px 14px rgba(0,0,0,0.3);
+      text-align: left;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .modal-content h2 {
+      margin-top: 0;
+      color: #003366;
+    }
+
+    .close-btn {
+      float: right;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .close-btn:hover {
+      color: red;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.9);}
+      to {opacity: 1; transform: scale(1);}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Alumni Directory</h1>
+    <p>Connect with alumni worldwide 🌍</p>
+  </header>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search alumni by company, department, or location...">
+    
+    <select id="yearFilter">
+      <option value="all">All Years</option>
+      <option value="2024">2024</option>
+      <option value="2023">2023</option>
+      <option value="2022">2022</option>
+      <option value="2021">2021</option>
+      <option value="2020">2020</option>
+    </select>
+
+    <select id="locationFilter">
+      <option value="all">All Locations</option>
+      <option value="New York">New York</option>
+      <option value="London">London</option>
+      <option value="Delhi">Delhi</option>
+      <option value="Chennai">Chennai</option>
+      <option value="Coimbatore">Coimbatore</option>
+    </select>
+
+    <select id="departmentFilter">
+      <option value="all">All Departments</option>
+      <option value="Computer Science">Computer Science</option>
+      <option value="Electronics">Electronics</option>
+      <option value="Mechanical">Mechanical</option>
+      <option value="Civil">Civil</option>
+      <option value="Management">Management</option>
+    </select>
+  </div>
+
+  <div class="results" id="results"></div>
+
+  <!-- Modal -->
+  <div id="alumniModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <div id="modalDetails"></div>
+    </div>
+  </div>
+
+  <script>
+    const alumni = [
+      { name: "Alice Johnson", company: "Google", location: "New York", year: "2024", department: "Computer Science", email: "alice.johnson@example.com", phone: "XXXXXXXXXX" },
+      { name: "Rahul Sharma", company: "Infosys", location: "Delhi", year: "2023", department: "Electronics", email: "rahul.sharma@example.com", phone: "XXXXXXXXXXX" },
+      { name: "Emily Brown", company: "Microsoft", location: "London", year: "2022", department: "Mechanical", email: "emily.brown@example.com", phone: "XXXXXXXXXXX" },
+      { name: "James Smith", company: "Amazon", location: "New York", year: "2023", department: "Civil", email: "james.smith@example.com", phone: "XXXXXXXXXXX" }
+    ];
+
+    const searchInput = document.getElementById("searchInput");
+    const yearFilter = document.getElementById("yearFilter");
+    const locationFilter = document.getElementById("locationFilter");
+    const departmentFilter = document.getElementById("departmentFilter");
+    const results = document.getElementById("results");
+    const modal = document.getElementById("alumniModal");
+    const modalDetails = document.getElementById("modalDetails");
+
+    function displayAlumni(list) {
+      results.innerHTML = "";
+      if(list.length === 0) {
+        results.innerHTML = "<p>No alumni found.</p>";
+        return;
+      }
+      list.forEach((alum, index) => {
+        const card = document.createElement("div");
+        card.classList.add("alumni-card");
+        card.innerHTML = `
+          <h3>${alum.name}</h3>
+          <p><strong>Company:</strong> ${alum.company}</p>
+          <p><strong>Location:</strong> ${alum.location}</p>
+          <p><strong>Year:</strong> ${alum.year}</p>
+          <p><strong>Department:</strong> ${alum.department}</p>
+          <button class="view-btn" onclick="viewAlumni(${index})">View</button>
+        `;
+        results.appendChild(card);
+      });
+    }
+
+    function filterAlumni() {
+      const searchText = searchInput.value.toLowerCase();
+      const year = yearFilter.value;
+      const location = locationFilter.value;
+      const department = departmentFilter.value;
+
+      const filtered = alumni.filter(alum => {
+        const matchesSearch =
+          alum.name.toLowerCase().includes(searchText) ||
+          alum.company.toLowerCase().includes(searchText) ||
+          alum.location.toLowerCase().includes(searchText) ||
+          alum.department.toLowerCase().includes(searchText) ||
+          alum.email.toLowerCase().includes(searchText) ||
+          alum.phone.toLowerCase().includes(searchText);
+
+        const matchesYear = year === "all" || alum.year === year;
+        const matchesLocation = location === "all" || alum.location === location;
+        const matchesDepartment = department === "all" || alum.department === department;
+
+        return matchesSearch && matchesYear && matchesLocation && matchesDepartment;
+      });
+
+      displayAlumni(filtered);
+    }
+
+    function viewAlumni(index) {
+      const alum = alumni[index];
+      modalDetails.innerHTML = `
+        <h2>${alum.name}</h2>
+        <p><strong>Company:</strong> ${alum.company}</p>
+        <p><strong>Location:</strong> ${alum.location}</p>
+        <p><strong>Year:</strong> ${alum.year}</p>
+        <p><strong>Department:</strong> ${alum.department}</p>
+        <p><strong>Email:</strong> <a href="mailto:${alum.email}">${alum.email}</a></p>
+        <p><strong>Phone:</strong> <a href="tel:${alum.phone}">${alum.phone}</a></p>
+      `;
+      modal.style.display = "flex";
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+
+    // Event listeners
+    searchInput.addEventListener("input", filterAlumni);
+    yearFilter.addEventListener("change", filterAlumni);
+    locationFilter.addEventListener("change", filterAlumni);
+    departmentFilter.addEventListener("change", filterAlumni);
+
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+
+    // Initial display
+    displayAlumni(alumni);
+  </script>
+
+</body>
+</html>

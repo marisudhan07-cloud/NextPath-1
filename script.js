@@ -116,7 +116,7 @@ function showHelpCenter() {
 }
 
 function showContactUs() {
-  alert('Contact Us:\nEmail: support@nextpath.com\nPhone: +91-9876543210\nAddress: NextPath HQ, Tech Park, Bangalore');
+  alert('Contact Us:\nEmail: support@nextgendevops.com\nPhone: +91-XXXXXXXXXX\nAddress: NextGen devops ,SNS Tech , coimbatore');
 }
 
 function showPrivacyPolicy() {
