@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alumni Portal - AlumniConnect</title>
+    <link rel="stylesheet" href="portal.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="portal-body">
+    <div class="portal-container">
+      <aside class="portal-sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <div class="logo">
+            <div class="logo-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <span class="logo-text">AlumniConnect</span>
+          </div>
+          <div class="user-info">
+            <div class="user-avatar">
+              <img
+                src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop"
+                alt="Profile"
+              />
+              <div class="status-indicator online"></div>
+            </div>
+            <div class="user-details">
+              <span class="user-name">Michael Chen</span>
+              <span class="user-batch">Class of 2018 • CS</span>
+            </div>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <ul>
+            <li>
+              <a href="#" data-tab="dashboard" class="nav-item active">
+                <i class="nav-icon fas fa-chart-pie"></i>
+                <span class="nav-text">Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" data-tab="directory" class="nav-item">
+                <i class="nav-icon fas fa-address-book"></i>
+                <span class="nav-text">Alumni Directory</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" data-tab="mentorship" class="nav-item">
+                <i class="nav-icon fas fa-handshake"></i>
+                <span class="nav-text">Mentorship</span>
+                <span class="nav-badge">3</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" data-tab="events" class="nav-item">
+                <i class="nav-icon fas fa-calendar-alt"></i>
+                <span class="nav-text">Events</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" data-tab="careers" class="nav-item">
+                <i class="nav-icon fas fa-briefcase"></i>
+                <span class="nav-text">Career Center</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" data-tab="donations" class="nav-item">
+                <i class="nav-icon fas fa-heart"></i>
+                <span class="nav-text">Give Back</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" data-tab="profile" class="nav-item">
+                <i class="nav-icon fas fa-user-edit"></i>
+                <span class="nav-text">My Profile</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+          <button class="logout-btn" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="portal-main">
+        <header class="portal-header">
+          <div class="header-left">
+            <button class="sidebar-toggle" onclick="toggleSidebar()">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="page-title">
+              <h1 id="pageTitle">Dashboard</h1>
+              <p id="pageSubtitle">Welcome back, Michael!</p>
+            </div>
+          </div>
+          <div class="header-right">
+            <div class="search-bar">
+              <i class="fas fa-search"></i>
+              <input
+                type="text"
+                id="globalSearch"
+                placeholder="Search alumni, events, or opportunities..."
+                onkeyup="performGlobalSearch()"
+              />
+            </div>
+            <button class="notification-btn" onclick="toggleNotifications()">
+              <i class="fas fa-bell"></i>
+              <span class="notification-count">7</span>
+            </button>
+          </div>
+        </header>
+
+        <div class="portal-content">
+          <!-- Dashboard Tab -->
+          <section id="dashboard" class="tab-content active">
+            <div class="dashboard-overview">
+              <div class="overview-cards">
+                <div class="overview-card network-card">
+                  <div class="card-icon connections">
+                    <i class="fas fa-users"></i>
+                  </div>
+                  <div class="card-content">
+                    <h3>My Network</h3>
+                    <span class="card-number">247</span>
+                    <p class="card-desc">Connected alumni</p>
+                  </div>
+                  <div class="card-action">
+                    <button onclick="showTab('directory')" class="btn btn-sm btn-primary">
+                      <i class="fas fa-search"></i>
+                      Explore
+                    </button>
+                  </div>
+                </div>
+
+                <div class="overview-card mentorship-card">
+                  <div class="card-icon mentorship">
+                    <i class="fas fa-handshake"></i>
+                  </div>
+                  <div class="card-content">
+                    <h3>Mentoring</h3>
+                    <span class="card-number">3</span>
+                    <p class="card-desc">Active mentees</p>
+                  </div>
+                  <div class="card-action">
+                    <button onclick="showTab('mentorship')" class="btn btn-sm btn-primary">
+                      <i class="fas fa-cog"></i>
+                      Manage
+                    </button>
+                  </div>
+                </div>
+
+                <div class="overview-card events-card">
+                  <div class="card-icon events">
+                    <i class="fas fa-calendar"></i>
+                  </div>
+                  <div class="card-content">
+                    <h3>Upcoming Events</h3>
+                    <span class="card-number">5</span>
+                    <p class="card-desc">This month</p>
+                  </div>
+                  <div class="card-action">
+                    <button onclick="showTab('events')" class="btn btn-sm btn-primary">
+                      <i class="fas fa-eye"></i>
+                      View
+                    </button>
+                  </div>
+                </div>
+
+                <div class="overview-card impact-card">
+                  <div class="card-icon impact">
+                    <i class="fas fa-heart"></i>
+                  </div>
+                  <div class="card-content">
+                    <h3>Impact Score</h3>
+                    <span class="card-number">890</span>
+                    <p class="card-desc">Community points</p>
+                  </div>
+                  <div class="card-action">
+                    <button onclick="showTab('donations')" class="btn btn-sm btn-primary">
+                      <i class="fas fa-plus"></i>
+                      Contribute
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dashboard-grid">
+              <div class="dashboard-card activity-card">
+                <div class="card-header">
+                  <h3><i class="fas fa-clock"></i> Recent Activity</h3>
+                  <button class="view-all-btn" onclick="showActivityModal()">
+                    <i class="fas fa-external-link-alt"></i> View All
+                  </button>
+                </div>
+                <div class="activity-feed" id="activityFeed"></div>
+              </div>
+
+              <div class="dashboard-card quick-actions-card">
+                <div class="card-header">
+                  <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+                </div>
+                <div class="quick-actions-grid">
+                  <button class="action-card update-profile-action" onclick="updateProfile()">
+                    <div class="action-icon">
+                      <i class="fas fa-user-edit"></i>
+                    </div>
+                    <span class="action-text">Update Profile</span>
+                    <div class="action-arrow">
+                      <i class="fas fa-arrow-right"></i>
+                    </div>
+                  </button>
+                  <button class="action-card post-job-action" onclick="postJob()">
+                    <div class="action-icon">
+                      <i class="fas fa-briefcase"></i>
+                    </div>
+                    <span class="action-text">Post Job</span>
+                    <div class="action-arrow">
+                      <i class="fas fa-arrow-right"></i>
+                    </div>
+                  </button>
+                  <button class="action-card create-event-action" onclick="createEvent()">
+                    <div class="action-icon">
+                      <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <span class="action-text">Create Event</span>
+                    <div class="action-arrow">
+                      <i class="fas fa-arrow-right"></i>
+                    </div>
+                  </button>
+                  <button class="action-card make-donation-action" onclick="makeDonation()">
+                    <div class="action-icon">
+                      <i class="fas fa-donate"></i>
+                    </div>
+                    <span class="action-text">Make Donation</span>
+                    <div class="action-arrow">
+                      <i class="fas fa-arrow-right"></i>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Alumni Directory Tab -->
+          <section id="directory" class="tab-content">
+            <div class="section-header">
+              <div class="section-title">
+                <h2><i class="fas fa-address-book"></i> Alumni Directory</h2>
+                <p class="section-desc">Connect with fellow alumni worldwide</p>
+              </div>
+              <div class="section-controls">
+                <div class="filter-controls">
+                  <select id="batchFilter" onchange="filterDirectory()">
+                    <option value="">All Batches</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                  </select>
+                  <select id="deptFilter" onchange="filterDirectory()">
+                    <option value="">All Departments</option>
+                    <option value="cs">Computer Science</option>
+                    <option value="ee">Electrical Engineering</option>
+                    <option value="me">Mechanical Engineering</option>
+                    <option value="ce">Civil Engineering</option>
+                  </select>
+                  <select id="locationFilter" onchange="filterDirectory()">
+                    <option value="">All Locations</option>
+                    <option value="usa">United States</option>
+                    <option value="canada">Canada</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="india">India</option>
+                  </select>
+                </div>
+                <div class="view-controls">
+                  <button class="view-btn active" onclick="setView('grid')" data-view="grid">
+                    <i class="fas fa-th"></i>
+                  </button>
+                  <button class="view-btn" onclick="setView('list')" data-view="list">
+                    <i class="fas fa-list"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div id="directoryGrid" class="alumni-directory-grid"></div>
+          </section>
+
+          <!-- Mentorship Tab -->
+          <section id="mentorship" class="tab-content">
+            <div class="section-header">
+              <div class="section-title">
+                <h2><i class="fas fa-handshake"></i> Mentorship Hub</h2>
+                <p class="section-desc">Share knowledge and grow together</p>
+              </div>
+              <button class="btn btn-primary" onclick="becomeMentor()">
+                <i class="fas fa-plus"></i>
+                Become a Mentor
+              </button>
+            </div>
+
+            <div class="mentorship-stats">
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-value">3</span>
+                  <span class="stat-label">Active Mentees</span>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-value">24</span>
+                  <span class="stat-label">Hours This Month</span>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-star"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-value">4.8</span>
+                  <span class="stat-label">Rating</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mentorship-tabs">
+              <button class="tab-btn active" data-mentorship-tab="mymentees">
+                My Mentees
+              </button>
+              <button class="tab-btn" data-mentorship-tab="sessions">
+                Sessions
+              </button>
+              <button class="tab-btn" data-mentorship-tab="requests">
+                Requests
+              </button>
+            </div>
+
+            <div id="mymenteesTab" class="mentorship-tab-content active">
+              <div id="menteesList" class="mentees-grid"></div>
+            </div>
+
+            <div id="sessionsTab" class="mentorship-tab-content">
+              <div class="sessions-container">
+                <div class="upcoming-sessions">
+                  <h3>Upcoming Sessions</h3>
+                  <div id="upcomingSessions" class="sessions-list"></div>
+                </div>
+                <div class="past-sessions">
+                  <h3>Recent Sessions</h3>
+                  <div id="pastSessions" class="sessions-list"></div>
+                </div>
+              </div>
+            </div>
+
+            <div id="requestsTab" class="mentorship-tab-content">
+              <div id="mentorshipRequests" class="requests-list"></div>
+            </div>
+          </section>
+
+          <!-- Events Tab -->
+          <section id="events" class="tab-content">
+            <div class="section-header">
+              <div class="section-title">
+                <h2><i class="fas fa-calendar-alt"></i> Alumni Events</h2>
+                <p class="section-desc">Stay connected with your community</p>
+              </div>
+              <div class="section-controls">
+                <select id="eventTypeFilter" onchange="filterEvents()">
+                  <option value="">All Events</option>
+                  <option value="networking">Networking</option>
+                  <option value="workshop">Workshop</option>
+                  <option value="social">Social</option>
+                  <option value="fundraising">Fundraising</option>
+                </select>
+                <select id="eventLocationFilter" onchange="filterEvents()">
+                  <option value="">All Locations</option>
+                  <option value="online">Online</option>
+                  <option value="campus">On Campus</option>
+                  <option value="offsite">Off-site</option>
+                </select>
+                <button class="btn btn-primary" onclick="createEvent()">
+                  <i class="fas fa-plus"></i>
+                  Create Event
+                </button>
+              </div>
+            </div>
+
+            <div class="events-tabs">
+              <button class="tab-btn active" data-events-tab="upcoming">
+                Upcoming
+              </button>
+              <button class="tab-btn" data-events-tab="registered">
+                My Events
+              </button>
+              <button class="tab-btn" data-events-tab="past">
+                Past Events
+              </button>
+            </div>
+
+            <div id="upcomingEventsTab" class="events-tab-content active">
+              <div id="upcomingEventsList" class="events-grid"></div>
+            </div>
+
+            <div id="registeredEventsTab" class="events-tab-content">
+              <div id="registeredEventsList" class="events-grid"></div>
+            </div>
+
+            <div id="pastEventsTab" class="events-tab-content">
+              <div id="pastEventsList" class="events-grid"></div>
+            </div>
+          </section>
+
+          <!-- Careers Tab -->
+          <section id="careers" class="tab-content">
+            <div class="section-header">
+              <div class="section-title">
+                <h2><i class="fas fa-briefcase"></i> Career Center</h2>
+                <p class="section-desc">Discover new opportunities</p>
+              </div>
+              <button class="btn btn-primary" onclick="postJob()">
+                <i class="fas fa-plus"></i>
+                Post Job
+              </button>
+            </div>
+
+            <div class="career-filters">
+              <div class="filter-bar">
+                <input
+                  type="text"
+                  placeholder="Search jobs..."
+                  class="search-input"
+                  id="jobSearchInput"
+                />
+                <select id="jobTypeFilter" onchange="filterJobs()">
+                  <option value="">All Types</option>
+                  <option value="fulltime">Full-time</option>
+                  <option value="parttime">Part-time</option>
+                  <option value="contract">Contract</option>
+                  <option value="internship">Internship</option>
+                </select>
+                <select id="experienceFilter" onchange="filterJobs()">
+                  <option value="">All Levels</option>
+                  <option value="entry">Entry Level</option>
+                  <option value="mid">Mid Level</option>
+                  <option value="senior">Senior Level</option>
+                </select>
+                <select id="remoteFilter" onchange="filterJobs()">
+                  <option value="">All Locations</option>
+                  <option value="remote">Remote</option>
+                  <option value="onsite">On-site</option>
+                  <option value="hybrid">Hybrid</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="jobsList" class="jobs-grid"></div>
+          </section>
+
+          <!-- Donations Tab -->
+          <section id="donations" class="tab-content">
+            <div class="section-header">
+              <div class="section-title">
+                <h2><i class="fas fa-heart"></i> Give Back to Your Alma Mater</h2>
+                <p class="section-desc">Support current students and campus initiatives</p>
+              </div>
+            </div>
+
+            <div class="donation-overview">
+              <div class="donation-stats">
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <i class="fas fa-hand-holding-heart"></i>
+                  </div>
+                  <div class="stat-info">
+                    <span class="stat-value">$2,500</span>
+                    <span class="stat-label">Your Total Contributions</span>
+                  </div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                  </div>
+                  <div class="stat-info">
+                    <span class="stat-value">12</span>
+                    <span class="stat-label">Students Supported</span>
+                  </div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-icon">
+                    <i class="fas fa-trophy"></i>
+                  </div>
+                  <div class="stat-info">
+                    <span class="stat-value">Gold</span>
+                    <span class="stat-label">Donor Status</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="campaigns-grid" id="campaignsList"></div>
+          </section>
+
+          <!-- Profile Tab -->
+          <section id="profile" class="tab-content">
+            <div class="section-header">
+              <div class="section-title">
+                <h2><i class="fas fa-user-edit"></i> My Profile</h2>
+                <p class="section-desc">Manage your profile information</p>
+              </div>
+              <button class="btn btn-secondary" onclick="editProfile()">
+                <i class="fas fa-edit"></i>
+                Edit Profile
+              </button>
+            </div>
+
+            <div class="profile-content">
+              <div class="profile-card">
+                <div class="profile-header">
+                  <div class="profile-avatar-large">
+                    <img
+                      src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop"
+                      alt="Profile"
+                    />
+                    <button class="avatar-edit" onclick="changeAvatar()">
+                      <i class="fas fa-camera"></i>
+                    </button>
+                  </div>
+                  <div class="profile-info">
+                    <h3>Michael Chen</h3>
+                    <p class="profile-title">
+                      Senior Software Engineer at Google
+                    </p>
+                    <p class="profile-batch">
+                      Class of 2018 • Computer Science
+                    </p>
+                    <div class="profile-location">
+                      <i class="fas fa-map-marker-alt"></i>
+                      <span>San Francisco, CA</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="profile-sections" id="profileSections"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="alumniModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Alumni Profile</h3>
+          <button class="modal-close" onclick="closeModal('alumniModal')">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body" id="alumniModalBody"></div>
+      </div>
+    </div>
+
+    <!-- Generic Action Modal -->
+    <div id="actionModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="actionModalTitle">Action</h3>
+          <button class="modal-close" onclick="closeModal('actionModal')">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body" id="actionModalBody"></div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" id="actionModalConfirm">Confirm</button>
+          <button class="btn btn-secondary" onclick="closeModal('actionModal')">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Study Buddy Chatbot -->
+    <div id="studyBuddy" class="study-buddy">
+      <div class="chatbot-header" onclick="toggleChatbot()">
+        <div class="chatbot-avatar">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="chatbot-info">
+          <span class="chatbot-name">Study Buddy</span>
+          <span class="chatbot-status">Online</span>
+        </div>
+        <button class="chatbot-toggle" id="chatbotToggleBtn">
+          <i class="fas fa-chevron-down"></i>
+        </button>
+      </div>
+      <div class="chatbot-content" id="chatbotContent">
+        <div class="quick-questions">
+          <h4>Quick Questions:</h4>
+          <div class="question-buttons">
+            <button class="question-btn" onclick="askQuestion('How do I find alumni in my field?')">
+              Find Alumni in My Field
+            </button>
+            <button class="question-btn" onclick="askQuestion('How to schedule mentorship sessions?')">
+              Schedule Mentorship
+            </button>
+            <button class="question-btn" onclick="askQuestion('Upcoming events this month?')">
+              Upcoming Events
+            </button>
+            <button class="question-btn" onclick="askQuestion('How to post a job?')">
+              Post a Job
+            </button>
+          </div>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+          <div class="message bot-message">
+            <div class="message-content">
+              <p>Hello! I'm your Study Buddy. I can help you navigate the portal, find alumni, schedule sessions, and more!</p>
+            </div>
+          </div>
+        </div>
+        <div class="chatbot-input">
+          <input
+            type="text"
+            id="chatInput"
+            placeholder="Type your message or use quick questions above..."
+            onkeypress="handleChatEnter(event)"
+          />
+          <button onclick="sendMessage()" class="send-btn">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notification Panel -->
+    <div id="notificationPanel" class="notification-panel">
+      <div class="notification-header">
+        <h3><i class="fas fa-bell"></i> Notifications</h3>
+        <button onclick="markAllAsRead()" class="mark-all-read">
+          Mark all as read
+        </button>
+      </div>
+      <div class="notification-list" id="notificationList"></div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="portal.js"></script>
+  </body>
+</html>

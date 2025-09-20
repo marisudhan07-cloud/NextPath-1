@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AlumniConnect - Digital Alumni Management Platform</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body class="landing-body">
+    <div class="landing-container">
+      <header class="landing-header">
+        <div class="header-content">
+          <div class="logo" onclick="scrollToTop()">
+            <div class="logo-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <span class="logo-text">AlumniConnect</span>
+          </div>
+          <nav class="nav-links">
+            <a href="#features" class="nav-link" onclick="scrollToSection('features')">Features</a>
+            <a href="#about" class="nav-link" onclick="scrollToSection('about')">About</a>
+            <a href="#stats" class="nav-link" onclick="scrollToSection('stats')">Impact</a>
+            <button class="btn btn-primary btn-sm" onclick="handleSignIn()">Sign In</button>
+          </nav>
+          <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </header>
+
+      <main class="landing-main">
+        <section class="hero-section">
+          <div class="hero-background">
+            <div class="hero-particles"></div>
+          </div>
+          <div class="hero-content">
+            <div class="hero-text">
+              <div class="hero-badge">
+                <span class="badge-icon">🚀</span>
+                <span>Next-Generation Alumni Platform</span>
+              </div>
+              <h1 class="hero-title">
+                Connect. Grow. <span class="gradient-text">Give Back.</span>
+              </h1>
+              <p class="hero-description">
+                The most comprehensive alumni management platform designed to
+                foster meaningful connections, career growth, and lasting
+                impact. Join thousands of alumni building the future together.
+              </p>
+              <div class="hero-buttons">
+                <button class="btn btn-primary btn-large" onclick="handleGetStarted()">
+                  <span>Get Started</span>
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+                <button class="btn btn-secondary btn-large" onclick="handleWatchDemo()">
+                  <i class="fas fa-play"></i>
+                  <span>Watch Demo</span>
+                </button>
+              </div>
+              <div class="hero-stats">
+                <div class="stat-item">
+                  <span class="stat-number">25K+</span>
+                  <span class="stat-label">Alumni Connected</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">1.2M+</span>
+                  <span class="stat-label">Connections Made</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">500+</span>
+                  <span class="stat-label">Events Hosted</span>
+                </div>
+              </div>
+            </div>
+            <div class="hero-visual">
+              <div class="hero-dashboard">
+                <div class="dashboard-mockup">
+                  <div class="mockup-header">
+                    <div class="mockup-dots">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <span class="mockup-title">Alumni Dashboard</span>
+                  </div>
+                  <div class="mockup-content">
+                    <div class="mockup-card">
+                      <div class="card-icon">👥</div>
+                      <div class="card-info">
+                        <h4>Active Connections</h4>
+                        <span>1,247</span>
+                      </div>
+                    </div>
+                    <div class="mockup-card">
+                      <div class="card-icon">🎯</div>
+                      <div class="card-info">
+                        <h4>Mentorships</h4>
+                        <span>156</span>
+                      </div>
+                    </div>
+                    <div class="mockup-card">
+                      <div class="card-icon">💼</div>
+                      <div class="card-info">
+                        <h4>Job Placements</h4>
+                        <span>89</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="features" class="features-section">
+          <div class="section-container">
+            <div class="section-header">
+              <div class="section-badge">Features</div>
+              <h2 class="section-title">
+                Everything you need to manage your alumni community
+              </h2>
+              <p class="section-description">
+                Powerful tools designed to strengthen connections, facilitate
+                mentorship, and drive meaningful engagement.
+              </p>
+            </div>
+            <div class="features-grid">
+              <div class="feature-card" onclick="handleFeatureClick('directory')">
+                <div class="feature-icon">
+                  <i class="fas fa-search"></i>
+                </div>
+                <h3>Smart Alumni Directory</h3>
+                <p>
+                  Advanced search capabilities with AI-powered matching and
+                  comprehensive profiles.
+                </p>
+                <div class="feature-highlights">
+                  <span>AI Matching</span>
+                  <span>Verification System</span>
+                  <span>Privacy Controls</span>
+                </div>
+                <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation(); handleLearnMore('directory')">
+                  Learn More <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+              <div class="feature-card featured" onclick="handleFeatureClick('mentorship')">
+                <div class="feature-badge">Popular</div>
+                <div class="feature-icon">
+                  <i class="fas fa-handshake"></i>
+                </div>
+                <h3>Mentorship Hub</h3>
+                <p>
+                  Connect alumni mentors with students through intelligent
+                  pairing and structured programs.
+                </p>
+                <div class="feature-highlights">
+                  <span>Smart Pairing</span>
+                  <span>Progress Tracking</span>
+                  <span>Success Metrics</span>
+                </div>
+                <button class="btn btn-primary btn-sm" onclick="event.stopPropagation(); handleLearnMore('mentorship')">
+                  Try Now <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+              <div class="feature-card" onclick="handleFeatureClick('events')">
+                <div class="feature-icon">
+                  <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3>Event Management</h3>
+                <p>
+                  Seamlessly organize reunions, networking events, and virtual
+                  meetups with built-in RSVP.
+                </p>
+                <div class="feature-highlights">
+                  <span>Event Planning</span>
+                  <span>RSVP Tracking</span>
+                  <span>Virtual Events</span>
+                </div>
+                <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation(); handleLearnMore('events')">
+                  Learn More <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+              <div class="feature-card" onclick="handleFeatureClick('careers')">
+                <div class="feature-icon">
+                  <i class="fas fa-briefcase"></i>
+                </div>
+                <h3>Career Center</h3>
+                <p>
+                  Exclusive job board with opportunities shared by alumni
+                  network and industry partners.
+                </p>
+                <div class="feature-highlights">
+                  <span>Job Matching</span>
+                  <span>Application Tracking</span>
+                  <span>Career Insights</span>
+                </div>
+                <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation(); handleLearnMore('careers')">
+                  Learn More <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+              <div class="feature-card" onclick="handleFeatureClick('donations')">
+                <div class="feature-icon">
+                  <i class="fas fa-donate"></i>
+                </div>
+                <h3>Donation Platform</h3>
+                <p>
+                  Secure fundraising campaigns with transparent tracking and
+                  automated donor management.
+                </p>
+                <div class="feature-highlights">
+                  <span>Secure Payments</span>
+                  <span>Campaign Tracking</span>
+                  <span>Donor Analytics</span>
+                </div>
+                <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation(); handleLearnMore('donations')">
+                  Learn More <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+              <div class="feature-card" onclick="handleFeatureClick('assistant')">
+                <div class="feature-icon">
+                  <i class="fas fa-robot"></i>
+                </div>
+                <h3>AI Study Buddy</h3>
+                <p>
+                  24/7 intelligent chatbot providing instant support and
+                  platform navigation assistance.
+                </p>
+                <div class="feature-highlights">
+                  <span>Natural Language</span>
+                  <span>Instant Support</span>
+                  <span>Smart Suggestions</span>
+                </div>
+                <button class="btn btn-primary btn-sm" onclick="event.stopPropagation(); openChatbot()">
+                  Try Chatbot <i class="fas fa-comment"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="stats" class="stats-section">
+          <div class="section-container">
+            <div class="stats-content">
+              <div class="stats-text">
+                <h2>Driving Real Impact</h2>
+                <p>
+                  Our platform has transformed how educational institutions
+                  connect with their alumni, creating lasting relationships and
+                  measurable outcomes.
+                </p>
+                <div class="stats-grid">
+                  <div class="stat-card" onclick="handleStatClick('users')">
+                    <div class="stat-icon">
+                      <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                      <span class="stat-number">25,000+</span>
+                      <span class="stat-label">Active Alumni</span>
+                    </div>
+                  </div>
+                  <div class="stat-card" onclick="handleStatClick('institutions')">
+                    <div class="stat-icon">
+                      <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="stat-info">
+                      <span class="stat-number">500+</span>
+                      <span class="stat-label">Institutions</span>
+                    </div>
+                  </div>
+                  <div class="stat-card" onclick="handleStatClick('donations')">
+                    <div class="stat-icon">
+                      <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="stat-info">
+                      <span class="stat-number">$12M+</span>
+                      <span class="stat-label">Raised</span>
+                    </div>
+                  </div>
+                  <div class="stat-card" onclick="handleStatClick('mentorships')">
+                    <div class="stat-icon">
+                      <i class="fas fa-handshake"></i>
+                    </div>
+                    <div class="stat-info">
+                      <span class="stat-number">15,000+</span>
+                      <span class="stat-label">Mentorships</span>
+                    </div>
+                  </div>
+                </div>
+                <button class="btn btn-primary btn-large mt-4" onclick="handleViewFullReport()">
+                  <i class="fas fa-chart-line"></i>
+                  View Full Impact Report
+                </button>
+              </div>
+              <div class="stats-visual">
+                <div class="impact-chart">
+                  <canvas id="impactChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" class="about-section">
+          <div class="section-container">
+            <div class="about-content">
+              <div class="about-text">
+                <div class="section-badge">About Platform</div>
+                <h2>Empowering Educational Excellence</h2>
+                <p>
+                  AlumniConnect represents the future of alumni engagement,
+                  combining cutting-edge technology with proven
+                  relationship-building strategies to create meaningful, lasting
+                  connections.
+                </p>
+                <div class="about-features">
+                  <div class="about-feature">
+                    <div class="feature-check">
+                      <i class="fas fa-check"></i>
+                    </div>
+                    <div class="feature-text">
+                      <h4>Role-Based Access Control</h4>
+                      <p>
+                        Secure, customized experiences for administrators,
+                        alumni, and students.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="about-feature">
+                    <div class="feature-check">
+                      <i class="fas fa-check"></i>
+                    </div>
+                    <div class="feature-text">
+                      <h4>Advanced Analytics</h4>
+                      <p>
+                        Deep insights into engagement metrics, donation
+                        patterns, and network growth.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="about-feature">
+                    <div class="feature-check">
+                      <i class="fas fa-check"></i>
+                    </div>
+                    <div class="feature-text">
+                      <h4>Mobile-First Design</h4>
+                      <p>
+                        Optimized experience across all devices with progressive
+                        web app capabilities.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <button class="btn btn-secondary btn-large" onclick="handleLearnMoreAbout()">
+                  <i class="fas fa-info-circle"></i>
+                  Learn More About Us
+                </button>
+              </div>
+              <div class="about-image">
+                <img
+                  src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                  alt="Alumni networking"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cta-section">
+          <div class="section-container">
+            <div class="cta-content">
+              <div class="cta-text">
+                <h2>Ready to Transform Your Alumni Community?</h2>
+                <p>
+                  Join thousands of institutions already using AlumniConnect to
+                  build stronger, more engaged alumni networks.
+                </p>
+              </div>
+              <div class="cta-actions">
+                <button class="btn btn-large cta-btn" onclick="handleStartJourney()">
+                  <span>Start Your Journey</span>
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+                <div class="cta-note">
+                  <span>Free trial • No credit card required • Setup in minutes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="landing-footer">
+        <div class="footer-container">
+          <div class="footer-content">
+            <div class="footer-brand">
+              <div class="logo">
+                <div class="logo-icon">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <span class="logo-text">AlumniConnect</span>
+              </div>
+              <p class="footer-description">
+                Empowering educational institutions to build stronger, more
+                connected alumni communities through innovative technology and
+                meaningful engagement.
+              </p>
+              <div class="footer-social">
+                <a href="https://twitter.com/alumniconnect" class="social-link" onclick="handleSocialClick('twitter')">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://linkedin.com/company/alumniconnect" class="social-link" onclick="handleSocialClick('linkedin')">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://facebook.com/alumniconnect" class="social-link" onclick="handleSocialClick('facebook')">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://instagram.com/alumniconnect" class="social-link" onclick="handleSocialClick('instagram')">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+            <div class="footer-links">
+              <div class="footer-section">
+                <h4>Platform</h4>
+                <ul>
+                  <li><a href="#features" onclick="scrollToSection('features')">Features</a></li>
+                  <li><a href="#" onclick="handleSignIn()">Sign In</a></li>
+                  <li><a href="#about" onclick="scrollToSection('about')">About</a></li>
+                  <li><a href="#stats" onclick="scrollToSection('stats')">Impact</a></li>
+                </ul>
+              </div>
+              <div class="footer-section">
+                <h4>User Roles</h4>
+                <ul>
+                  <li><a href="#" onclick="handleRoleAccess('admin')">Administrator</a></li>
+                  <li><a href="#" onclick="handleRoleAccess('alumni')">Alumni Portal</a></li>
+                  <li><a href="#" onclick="handleRoleAccess('student')">Student Dashboard</a></li>
+                </ul>
+              </div>
+              <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                  <li><a href="#" onclick="handleResourceClick('docs')">Documentation</a></li>
+                  <li><a href="#" onclick="handleResourceClick('api')">API Reference</a></li>
+                  <li><a href="#" onclick="openChatbot()">Support Center</a></li>
+                  <li><a href="#" onclick="handleResourceClick('community')">Community</a></li>
+                </ul>
+              </div>
+              <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                  <li><a href="#" onclick="handleCompanyClick('about')">About Us</a></li>
+                  <li><a href="#" onclick="handleCompanyClick('contact')">Contact</a></li>
+                  <li><a href="#" onclick="handleCompanyClick('privacy')">Privacy Policy</a></li>
+                  <li><a href="#" onclick="handleCompanyClick('terms')">Terms of Service</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <div class="footer-bottom-content">
+              <p>&copy; 2025 AlumniConnect. All rights reserved.</p>
+              <div class="footer-bottom-links">
+                <a href="#" onclick="handleLegalClick('privacy')">Privacy</a>
+                <a href="#" onclick="handleLegalClick('terms')">Terms</a>
+                <a href="#" onclick="handleLegalClick('security')">Security</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Enhanced Study Buddy Chatbot -->
+    <div id="chatbot-container" class="chatbot-container">
+      <div id="chatbot-toggle" class="chatbot-toggle" onclick="toggleChatbot()">
+        <i class="fas fa-robot"></i>
+        <span class="chatbot-badge">Study Buddy</span>
+        <div class="chatbot-pulse"></div>
+      </div>
+      
+      <div id="chatbot-window" class="chatbot-window">
+        <div class="chatbot-header">
+          <div class="chatbot-title">
+            <div class="chatbot-avatar">
+              <i class="fas fa-robot"></i>
+            </div>
+            <div class="chatbot-info">
+              <span class="chatbot-name">Study Buddy</span>
+              <span class="chatbot-status">Online</span>
+            </div>
+          </div>
+          <div class="chatbot-controls">
+            <button class="chatbot-minimize" onclick="minimizeChatbot()" title="Minimize">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button class="chatbot-close" onclick="closeChatbot()" title="Close">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="chatbot-content">
+          <div id="chatbot-messages" class="chatbot-messages">
+            <!-- Initial messages will be added by JS -->
+          </div>
+          
+          <div class="chatbot-suggestions">
+            <div class="suggestion-header">
+              <span>Quick Questions:</span>
+            </div>
+            <div class="chatbot-quick-questions">
+              <button class="quick-question" onclick="handleQuickQuestion('How do I register as an alumni?')">
+                <i class="fas fa-user-plus"></i>
+                Register as Alumni
+              </button>
+              <button class="quick-question" onclick="handleQuickQuestion('How can I find mentors?')">
+                <i class="fas fa-handshake"></i>
+                Find Mentors
+              </button>
+              <button class="quick-question" onclick="handleQuickQuestion('What events are upcoming?')">
+                <i class="fas fa-calendar"></i>
+                Upcoming Events
+              </button>
+              <button class="quick-question" onclick="handleQuickQuestion('How do I access career opportunities?')">
+                <i class="fas fa-briefcase"></i>
+                Career Center
+              </button>
+              <button class="quick-question" onclick="handleQuickQuestion('How can I make a donation?')">
+                <i class="fas fa-donate"></i>
+                Make Donation
+              </button>
+              <button class="quick-question" onclick="handleQuickQuestion('How do I update my profile?')">
+                <i class="fas fa-edit"></i>
+                Update Profile
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="chatbot-input">
+          <div class="input-container">
+            <input type="text" id="chatbot-input-field" placeholder="Type your message..." onkeypress="handleChatInput(event)">
+            <button id="send-button" onclick="sendMessage()" title="Send Message">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+          <div class="typing-indicator" id="typing-indicator">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

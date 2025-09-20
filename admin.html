@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - AlumniConnect</title>
+    <link rel="stylesheet" href="admin.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body class="admin-body">
+    <div class="admin-container">
+      <aside class="admin-sidebar">
+        <div class="sidebar-header">
+          <div class="logo">
+            <div class="logo-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <span class="logo-text">AlumniConnect</span>
+          </div>
+          <div class="admin-badge">
+            <i class="fas fa-shield-alt"></i>
+            <span>Admin Portal</span>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <div class="nav-section">
+            <span class="nav-section-title">Main Dashboard</span>
+            <ul>
+              <li>
+                <a
+                  href="#"
+                  onclick="showSection('dashboardSection')"
+                  class="nav-item active"
+                >
+                  <i class="nav-icon fas fa-chart-pie"></i>
+                  <span class="nav-text">Dashboard</span>
+                  <span class="nav-badge">Live</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="nav-section">
+            <span class="nav-section-title">Alumni Management</span>
+            <ul>
+              <li>
+                <a
+                  href="#"
+                  onclick="showSection('pendingSection')"
+                  class="nav-item"
+                >
+                  <i class="nav-icon fas fa-clock"></i>
+                  <span class="nav-text">Pending Requests</span>
+                  <span class="nav-count" id="pendingCount">23</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="showSection('approvedSection')"
+                  class="nav-item"
+                >
+                  <i class="nav-icon fas fa-check-circle"></i>
+                  <span class="nav-text">Approved Alumni</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="showSection('studentSection')"
+                  class="nav-item"
+                >
+                  <i class="nav-icon fas fa-user-graduate"></i>
+                  <span class="nav-text">Students</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="nav-section">
+            <span class="nav-section-title">Operations</span>
+            <ul>
+              <li>
+                <a
+                  href="#"
+                  onclick="showSection('eventsSection')"
+                  class="nav-item"
+                >
+                  <i class="nav-icon fas fa-calendar-alt"></i>
+                  <span class="nav-text">Events</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="showSection('careerSection')"
+                  class="nav-item"
+                >
+                  <i class="nav-icon fas fa-briefcase"></i>
+                  <span class="nav-text">Career Board</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="showSection('donationSection')"
+                  class="nav-item"
+                >
+                  <i class="nav-icon fas fa-donate"></i>
+                  <span class="nav-text">Donations</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="nav-section">
+            <span class="nav-section-title">Analytics & Settings</span>
+            <ul>
+              <li>
+                <a
+                  href="#"
+                  onclick="showSection('analyticsSection')"
+                  class="nav-item"
+                >
+                  <i class="nav-icon fas fa-chart-bar"></i>
+                  <span class="nav-text">Analytics</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="showSection('settingsSection')"
+                  class="nav-item"
+                >
+                  <i class="nav-icon fas fa-cog"></i>
+                  <span class="nav-text">Settings</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="admin-profile">
+            <div class="profile-avatar">
+              <img
+                src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop"
+                alt="Admin"
+              />
+            </div>
+            <div class="profile-info">
+              <span class="profile-name">Dr. Sarah Wilson</span>
+              <span class="profile-role">System Administrator</span>
+            </div>
+          </div>
+          <a href="login.html" class="logout-btn" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span> 
+          </a>
+        </div>
+      </aside>
+
+      <main class="admin-main">
+        <header class="admin-header">
+          <div class="header-left">
+            <button class="sidebar-toggle" onclick="toggleSidebar()">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="breadcrumb">
+              <span class="breadcrumb-item">Admin</span>
+              <i class="fas fa-chevron-right"></i>
+              <span class="breadcrumb-item current" id="currentPage">Dashboard</span>
+            </div>
+          </div>
+
+          <div class="header-right">
+            <div class="search-container">
+              <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input
+                  type="text"
+                  id="globalSearch"
+                  placeholder="Search anything..."
+                  onkeyup="performGlobalSearch()"
+                />
+              </div>
+            </div>
+            <div class="header-stats">
+              <div class="stat-item">
+                <span class="stat-label">Total Alumni</span>
+                <span class="stat-value" id="totalAlumni">2,847</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">New This Month</span>
+                <span class="stat-value" id="newThisMonth">127</span>
+              </div>
+            </div>
+            <div class="header-actions">
+              <button class="action-btn" id="notificationBtn">
+                <i class="fas fa-bell"></i>
+                <span class="notification-count" id="notificationCount">5</span>
+              </button>
+              <button class="action-btn" onclick="showSection('settingsSection')">
+                <i class="fas fa-cog"></i>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <div class="admin-content">
+          <!-- Dashboard Overview -->
+          <section id="dashboardSection" class="content-section active">
+            <div class="section-header">
+              <h1>Dashboard Overview</h1>
+              <p>Real-time insights and key metrics for alumni management</p>
+            </div>
+
+            <div class="dashboard-grid">
+              <div class="metric-card">
+                <div class="metric-icon alumni-icon">
+                  <i class="fas fa-users"></i>
+                </div>
+                <div class="metric-content">
+                  <div class="metric-header">
+                    <h3>Total Alumni</h3>
+                    <span class="metric-trend positive">
+                      <i class="fas fa-arrow-up"></i>
+                      12%
+                    </span>
+                  </div>
+                  <div class="metric-value" id="dashAlumniCount">2,847</div>
+                  <p class="metric-desc">+127 this month</p>
+                </div>
+              </div>
+
+              <div class="metric-card">
+                <div class="metric-icon pending-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="metric-content">
+                  <div class="metric-header">
+                    <h3>Pending Requests</h3>
+                    <span class="metric-trend neutral">
+                      <i class="fas fa-minus"></i>
+                      0%
+                    </span>
+                  </div>
+                  <div class="metric-value" id="dashPendingCount">23</div>
+                  <p class="metric-desc">Awaiting approval</p>
+                </div>
+              </div>
+
+              <div class="metric-card">
+                <div class="metric-icon events-icon">
+                  <i class="fas fa-calendar"></i>
+                </div>
+                <div class="metric-content">
+                  <div class="metric-header">
+                    <h3>Active Events</h3>
+                    <span class="metric-trend positive">
+                      <i class="fas fa-arrow-up"></i>
+                      8%
+                    </span>
+                  </div>
+                  <div class="metric-value">15</div>
+                  <p class="metric-desc">This quarter</p>
+                </div>
+              </div>
+
+              <div class="metric-card">
+                <div class="metric-icon donations-icon">
+                  <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <div class="metric-content">
+                  <div class="metric-header">
+                    <h3>Total Donations</h3>
+                    <span class="metric-trend positive">
+                      <i class="fas fa-arrow-up"></i>
+                      24%
+                    </span>
+                  </div>
+                  <div class="metric-value">$142K</div>
+                  <p class="metric-desc">This year</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="dashboard-charts">
+              <div class="chart-card">
+                <div class="chart-header">
+                  <h3>Alumni Registration Trends</h3>
+                  <div class="chart-controls">
+                    <select id="registrationPeriod">
+                      <option value="6months">Last 6 months</option>
+                      <option value="1year" selected>Last year</option>
+                      <option value="2years">Last 2 years</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="chart-container">
+                  <canvas id="registrationChart"></canvas>
+                </div>
+              </div>
+
+              <div class="chart-card">
+                <div class="chart-header">
+                  <h3>Department Distribution</h3>
+                </div>
+                <div class="chart-container">
+                  <canvas id="departmentChart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="recent-activity">
+              <div class="activity-card">
+                <div class="activity-header">
+                  <h3>Recent Activity</h3>
+                  <a href="#" class="view-all" onclick="showSection('analyticsSection')">View All</a>
+                </div>
+                <div class="activity-list" id="activityList"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Pending Alumni Section -->
+          <section id="pendingSection" class="content-section">
+            <div class="section-header">
+              <h1>Pending Alumni Requests</h1>
+              <p>Review and approve new alumni registrations</p>
+            </div>
+
+            <div class="section-controls">
+              <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input
+                  type="text"
+                  id="searchPending"
+                  placeholder="Search pending requests..."
+                  onkeyup="filterPending()"
+                />
+              </div>
+              <div class="filter-controls">
+                <select id="departmentFilter" onchange="filterPending()">
+                  <option value="">All Departments</option>
+                  <option value="Computer Science">Computer Science</option>
+                  <option value="Engineering">Engineering</option>
+                  <option value="Business">Business</option>
+                  <option value="Arts">Arts</option>
+                </select>
+                <select id="batchFilter" onchange="filterPending()">
+                  <option value="">All Batches</option>
+                  <option value="2023">2023</option>
+                  <option value="2022">2022</option>
+                  <option value="2021">2021</option>
+                  <option value="2020">2020</option>
+                  <option value="2019">2019</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="data-table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>
+                      <label class="checkbox-wrapper">
+                        <input
+                          type="checkbox"
+                          id="selectAll"
+                          onchange="toggleSelectAll()"
+                        />
+                        <span class="checkbox-custom"></span>
+                      </label>
+                    </th>
+                    <th onclick="sortTable('pendingTable', 1)">
+                      Name <i class="fas fa-sort"></i>
+                    </th>
+                    <th onclick="sortTable('pendingTable', 2)">
+                      Email <i class="fas fa-sort"></i>
+                    </th>
+                    <th onclick="sortTable('pendingTable', 3)">
+                      Department <i class="fas fa-sort"></i>
+                    </th>
+                    <th onclick="sortTable('pendingTable', 4)">
+                      Batch Year <i class="fas fa-sort"></i>
+                    </th>
+                    <th onclick="sortTable('pendingTable', 5)">
+                      Request Date <i class="fas fa-sort"></i>
+                    </th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="pendingTableBody"></tbody>
+              </table>
+            </div>
+
+            <div class="bulk-actions">
+              <button class="btn btn-success" onclick="bulkApprove()">
+                <i class="fas fa-check"></i>
+                Approve Selected
+              </button>
+              <button class="btn btn-danger" onclick="bulkReject()">
+                <i class="fas fa-times"></i>
+                Reject Selected
+              </button>
+            </div>
+          </section>
+
+          <!-- Approved Alumni Section -->
+          <section id="approvedSection" class="content-section">
+            <div class="section-header">
+              <h1>Approved Alumni</h1>
+              <p>Manage verified alumni profiles and information</p>
+            </div>
+
+            <div class="section-controls">
+              <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input
+                  type="text"
+                  id="searchApproved"
+                  placeholder="Search approved alumni..."
+                  onkeyup="filterApproved()"
+                />
+              </div>
+              <button class="btn btn-primary" onclick="exportAlumniData()">
+                <i class="fas fa-download"></i>
+                Export Data
+              </button>
+            </div>
+
+            <div id="approvedGrid" class="alumni-grid"></div>
+          </section>
+
+          <!-- Events Section -->
+          <section id="eventsSection" class="content-section">
+            <div class="section-header">
+              <h1>Event Management</h1>
+              <p>Create and manage alumni events and activities</p>
+            </div>
+
+            <div class="section-controls">
+              <button class="btn btn-primary" onclick="createEvent()">
+                <i class="fas fa-plus"></i>
+                Create New Event
+              </button>
+            </div>
+
+            <div class="data-table-container">
+              <table class="data-table" id="eventsTable">
+                <thead>
+                  <tr>
+                    <th onclick="sortTable('eventsTable', 0)">
+                      Event Name <i class="fas fa-sort"></i>
+                    </th>
+                    <th onclick="sortTable('eventsTable', 1)">
+                      Date <i class="fas fa-sort"></i>
+                    </th>
+                    <th onclick="sortTable('eventsTable', 2)">
+                      Venue <i class="fas fa-sort"></i>
+                    </th>
+                    <th onclick="sortTable('eventsTable', 3)">
+                      Attendees <i class="fas fa-sort"></i>
+                    </th>
+                    <th onclick="sortTable('eventsTable', 4)">
+                      Status <i class="fas fa-sort"></i>
+                    </th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="eventsTableBody"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Career Section -->
+          <section id="careerSection" class="content-section">
+            <div class="section-header">
+              <h1>Career Board Management</h1>
+              <p>Manage job postings and career opportunities for alumni</p>
+            </div>
+
+            <div class="section-controls">
+              <button class="btn btn-primary" onclick="addJobPosting()">
+                <i class="fas fa-plus"></i>
+                Add Job Posting
+              </button>
+            </div>
+
+            <div class="data-table-container">
+              <table class="data-table" id="careerTable">
+                <thead>
+                  <tr>
+                    <th onclick="sortTable('careerTable', 0)">
+                      Position <i class="fas fa-sort"></i>
+                    </th>
+                    <th onclick="sortTable('careerTable', 1)">
+                      Company <i class="fas fa-sort"></i>
+                    </th>
+                    <th onclick="sortTable('careerTable', 2)">
+                      Location <i class="fas fa-sort"></i>
+                    </th>
+                    <th onclick="sortTable('careerTable', 3)">
+                      Type <i class="fas fa-sort"></i>
+                    </th>
+                    <th onclick="sortTable('careerTable', 4)">
+                      Posted Date <i class="fas fa-sort"></i>
+                    </th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="careerTableBody"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Donations Section -->
+          <section id="donationSection" class="content-section">
+            <div class="section-header">
+              <h1>Donation Management</h1>
+              <p>Track and manage alumni donations and contributions</p>
+            </div>
+
+            <div class="donation-stats">
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-dollar-sign"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-value">$142,580</span>
+                  <span class="stat-label">Total This Year</span>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-value">284</span>
+                  <span class="stat-label">Active Donors</span>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-value">+18%</span>
+                  <span class="stat-label">Growth Rate</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="data-table-container">
+              <table class="data-table" id="donationTable">
+                <thead>
+                  <tr>
+                    <th onclick="sortTable('donationTable', 0)">
+                      Donor Name <i class="fas fa-sort"></i>
+                    </th>
+                    <th onclick="sortTable('donationTable', 1)">
+                      Amount <i class="fas fa-sort"></i>
+                    </th>
+                    <th onclick="sortTable('donationTable', 2)">
+                      Campaign <i class="fas fa-sort"></i>
+                    </th>
+                    <th onclick="sortTable('donationTable', 3)">
+                      Date <i class="fas fa-sort"></i>
+                    </th>
+                    <th onclick="sortTable('donationTable', 4)">
+                      Status <i class="fas fa-sort"></i>
+                    </th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="donationTableBody"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Analytics Section -->
+          <section id="analyticsSection" class="content-section">
+            <div class="section-header">
+              <h1>Analytics Dashboard</h1>
+              <p>Comprehensive insights and detailed reporting</p>
+            </div>
+
+            <div class="analytics-tabs">
+              <button class="tab-btn active" onclick="showAnalyticsTab('overview')">
+                Overview
+              </button>
+              <button class="tab-btn" onclick="showAnalyticsTab('alumni')">
+                Alumni
+              </button>
+              <button class="tab-btn" onclick="showAnalyticsTab('events')">
+                Events
+              </button>
+              <button class="tab-btn" onclick="showAnalyticsTab('donations')">
+                Donations
+              </button>
+            </div>
+
+            <div id="overviewTab" class="analytics-content">
+              <div class="analytics-grid">
+                <div class="chart-card large">
+                  <div class="chart-header">
+                    <h3>Platform Usage Analytics</h3>
+                  </div>
+                  <div class="chart-container">
+                    <canvas id="usageChart"></canvas>
+                  </div>
+                </div>
+                <div class="chart-card">
+                  <div class="chart-header">
+                    <h3>User Engagement</h3>
+                  </div>
+                  <div class="chart-container">
+                    <canvas id="engagementChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="alumniTab" class="analytics-content" style="display: none">
+              <div class="analytics-grid">
+                <div class="chart-card">
+                  <div class="chart-header">
+                    <h3>Alumni by Department</h3>
+                  </div>
+                  <div class="chart-container">
+                    <canvas id="alumniDeptChart"></canvas>
+                  </div>
+                </div>
+                <div class="chart-card">
+                  <div class="chart-header">
+                    <h3>Registration Timeline</h3>
+                  </div>
+                  <div class="chart-container">
+                    <canvas id="alumniTimelineChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="eventsTab" class="analytics-content" style="display: none">
+              <div class="analytics-grid">
+                <div class="chart-card">
+                  <div class="chart-header">
+                    <h3>Event Attendance</h3>
+                  </div>
+                  <div class="chart-container">
+                    <canvas id="eventAttendanceChart"></canvas>
+                  </div>
+                </div>
+                <div class="chart-card">
+                  <div class="chart-header">
+                    <h3>Event Types</h3>
+                  </div>
+                  <div class="chart-container">
+                    <canvas id="eventTypesChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="donationsTab" class="analytics-content" style="display: none">
+              <div class="analytics-grid">
+                <div class="chart-card">
+                  <div class="chart-header">
+                    <h3>Donation Trends</h3>
+                  </div>
+                  <div class="chart-container">
+                    <canvas id="donationTrendChart"></canvas>
+                  </div>
+                </div>
+                <div class="chart-card">
+                  <div class="chart-header">
+                    <h3>Top Donors</h3>
+                  </div>
+                  <div class="chart-container">
+                    <canvas id="topDonorsChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Students Section -->
+          <section id="studentSection" class="content-section">
+            <div class="section-header">
+              <h1>Student Management</h1>
+              <p>Manage current student profiles and access permissions</p>
+            </div>
+
+            <div class="section-controls">
+              <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input
+                  type="text"
+                  id="searchStudents"
+                  placeholder="Search students..."
+                  onkeyup="filterStudents()"
+                />
+              </div>
+              <button class="btn btn-primary" onclick="addStudent()">
+                <i class="fas fa-user-plus"></i>
+                Add Student
+              </button>
+            </div>
+
+            <div class="data-table-container">
+              <table class="data-table" id="studentTable">
+                <thead>
+                  <tr>
+                    <th onclick="sortTable('studentTable', 0)">
+                      Name <i class="fas fa-sort"></i>
+                    </th>
+                    <th onclick="sortTable('studentTable', 1)">
+                      Student ID <i class="fas fa-sort"></i>
+                    </th>
+                    <th onclick="sortTable('studentTable', 2)">
+                      Department <i class="fas fa-sort"></i>
+                    </th>
+                    <th onclick="sortTable('studentTable', 3)">
+                      Year <i class="fas fa-sort"></i>
+                    </th>
+                    <th onclick="sortTable('studentTable', 4)">
+                      Email <i class="fas fa-sort"></i>
+                    </th>
+                    <th onclick="sortTable('studentTable', 5)">
+                      Status <i class="fas fa-sort"></i>
+                    </th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="studentTableBody"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Settings Section -->
+          <section id="settingsSection" class="content-section">
+            <div class="section-header">
+              <h1>System Settings</h1>
+              <p>Configure platform settings and administrative preferences</p>
+            </div>
+
+            <div class="settings-container">
+              <div class="settings-tabs">
+                <button class="settings-tab-btn active" onclick="showSettingsTab('general')">
+                  General
+                </button>
+                <button class="settings-tab-btn" onclick="showSettingsTab('notifications')">
+                  Notifications
+                </button>
+                <button class="settings-tab-btn" onclick="showSettingsTab('security')">
+                  Security
+                </button>
+                <button class="settings-tab-btn" onclick="showSettingsTab('integrations')">
+                  Integrations
+                </button>
+              </div>
+
+              <div id="generalTab" class="settings-content">
+                <div class="settings-section">
+                  <h3>Platform Configuration</h3>
+                  <div class="setting-item">
+                    <label for="platformName">Platform Name</label>
+                    <input
+                      type="text"
+                      id="platformName"
+                      value="AlumniConnect"
+                      class="setting-input"
+                    />
+                  </div>
+                  <div class="setting-item">
+                    <label for="institutionName">Institution Name</label>
+                    <input
+                      type="text"
+                      id="institutionName"
+                      value="University of Excellence"
+                      class="setting-input"
+                    />
+                  </div>
+                  <div class="setting-item">
+                    <label for="contactEmail">Contact Email</label>
+                    <input
+                      type="email"
+                      id="contactEmail"
+                      value="admin@alumniconnect.edu"
+                      class="setting-input"
+                    />
+                  </div>
+                  <div class="setting-item">
+                    <label class="toggle-label">
+                      <input
+                        type="checkbox"
+                        id="maintenanceMode"
+                        class="toggle-input"
+                      />
+                      <span class="toggle-slider"></span>
+                      Maintenance Mode
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div id="notificationsTab" class="settings-content" style="display: none">
+                <div class="settings-section">
+                  <h3>Email Notifications</h3>
+                  <div class="setting-item">
+                    <label class="toggle-label">
+                      <input
+                        type="checkbox"
+                        id="newRegistrations"
+                        class="toggle-input"
+                        checked
+                      />
+                      <span class="toggle-slider"></span>
+                      New Alumni Registrations
+                    </label>
+                  </div>
+                  <div class="setting-item">
+                    <label class="toggle-label">
+                      <input
+                        type="checkbox"
+                        id="eventReminders"
+                        class="toggle-input"
+                        checked
+                      />
+                      <span class="toggle-slider"></span>
+                      Event Reminders
+                    </label>
+                  </div>
+                  <div class="setting-item">
+                    <label class="toggle-label">
+                      <input
+                        type="checkbox"
+                        id="donationAlerts"
+                        class="toggle-input"
+                        checked
+                      />
+                      <span class="toggle-slider"></span>
+                      Donation Alerts
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div id="securityTab" class="settings-content" style="display: none">
+                <div class="settings-section">
+                  <h3>Security Settings</h3>
+                  <div class="setting-item">
+                    <label class="toggle-label">
+                      <input
+                        type="checkbox"
+                        id="twoFactorAuth"
+                        class="toggle-input"
+                      />
+                      <span class="toggle-slider"></span>
+                      Two-Factor Authentication
+                    </label>
+                  </div>
+                  <div class="setting-item">
+                    <label for="sessionTimeout">Session Timeout (minutes)</label>
+                    <input
+                      type="number"
+                      id="sessionTimeout"
+                      value="30"
+                      class="setting-input"
+                    />
+                  </div>
+                  <div class="setting-item">
+                    <label class="toggle-label">
+                      <input
+                        type="checkbox"
+                        id="loginLogging"
+                        class="toggle-input"
+                        checked
+                      />
+                      <span class="toggle-slider"></span>
+                      Login Activity Logging
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div id="integrationsTab" class="settings-content" style="display: none">
+                <div class="settings-section">
+                  <h3>Third-Party Integrations</h3>
+                  <div class="integration-item">
+                    <div class="integration-info">
+                      <h4>Google Analytics</h4>
+                      <p>Track website analytics and user behavior</p>
+                    </div>
+                    <button class="btn btn-secondary" onclick="configureIntegration('analytics')">Configure</button>
+                  </div>
+                  <div class="integration-item">
+                    <div class="integration-info">
+                      <h4>Mailchimp</h4>
+                      <p>Email marketing and newsletter management</p>
+                    </div>
+                    <button class="btn btn-secondary" onclick="configureIntegration('mailchimp')">Configure</button>
+                  </div>
+                  <div class="integration-item">
+                    <div class="integration-info">
+                      <h4>Stripe</h4>
+                      <p>Payment processing for donations</p>
+                    </div>
+                    <button class="btn btn-secondary" onclick="configureIntegration('stripe')">Configure</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="settings-actions">
+                <button class="btn btn-primary" onclick="saveSettings()">
+                  <i class="fas fa-save"></i>
+                  Save Changes
+                </button>
+                <button class="btn btn-secondary" onclick="resetSettings()">
+                  <i class="fas fa-undo"></i>
+                  Reset to Defaults
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <!-- Study Buddy Chatbot -->
+    <div class="chatbot-container" id="chatbotContainer">
+      <div class="chatbot-header" id="chatbotHeader">
+        <div class="chatbot-title">
+          <i class="fas fa-robot"></i>
+          <span>Study Buddy</span>
+        </div>
+        <div class="chatbot-controls">
+          <button class="chatbot-minimize" id="chatbotMinimize">
+            <i class="fas fa-minus"></i>
+          </button>
+          <button class="chatbot-close" id="chatbotClose">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <div class="chatbot-body" id="chatbotBody">
+        <div class="chatbot-messages" id="chatbotMessages">
+          <div class="message bot-message">
+            <div class="message-avatar">
+              <i class="fas fa-robot"></i>
+            </div>
+            <div class="message-content">
+              <p>Hello! I'm your Study Buddy. How can I help you with the admin dashboard today?</p>
+            </div>
+          </div>
+        </div>
+        <div class="quick-questions">
+          <div class="quick-question" onclick="askQuickQuestion('How do I approve alumni?')">
+            How do I approve alumni?
+          </div>
+          <div class="quick-question" onclick="askQuickQuestion('Show me pending requests')">
+            Show me pending requests
+          </div>
+          <div class="quick-question" onclick="askQuickQuestion('How to export data?')">
+            How to export data?
+          </div>
+        </div>
+        <div class="chatbot-input-container">
+          <input
+            type="text"
+            id="chatbotInput"
+            placeholder="Type your message..."
+            onkeypress="handleChatbotEnter(event)"
+          />
+          <button class="chatbot-send" id="chatbotSend">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chatbot Toggle Button -->
+    <div class="chatbot-toggle" id="chatbotToggle">
+      <i class="fas fa-comments"></i>
+    </div>
+
+    <!-- Modals -->
+    <div id="alumniModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Alumni Details</h3>
+          <button class="modal-close" onclick="closeModal('alumniModal')">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body" id="alumniModalBody"></div>
+      </div>
+    </div>
+
+    <div id="createEventModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Create New Event</h3>
+          <button class="modal-close" onclick="closeModal('createEventModal')">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="eventForm" onsubmit="submitEventForm(event)">
+            <div class="form-group">
+              <label for="eventName">Event Name</label>
+              <input type="text" id="eventName" class="form-input" required />
+            </div>
+            <div class="form-group">
+              <label for="eventDate">Event Date</label>
+              <input type="date" id="eventDate" class="form-input" required />
+            </div>
+            <div class="form-group">
+              <label for="eventVenue">Venue</label>
+              <input type="text" id="eventVenue" class="form-input" required />
+            </div>
+            <div class="form-group">
+              <label for="eventDescription">Description</label>
+              <textarea id="eventDescription" class="form-input" rows="4"></textarea>
+            </div>
+            <div class="modal-actions">
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Create Event
+              </button>
+              <button type="button" class="btn btn-secondary" onclick="closeModal('createEventModal')">
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="admin.js"></script>
+  </body>
+</html>

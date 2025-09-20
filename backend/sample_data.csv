@@ -1,0 +1,49 @@
+usn,full_name,role,batch,branch,email,phone
+ADM24001,Demo Admin,admin,2024,Administration,admin@example.com,1234567890
+CSE00001,Alice Johnson,alumni,2021,Mechanical,alice.johnson@example.com,9990000001
+CSE00002,Bob Williams,student,2022,Electronics,bob.williams@example.com,9990000002
+CSE00003,Charlie Brown,alumni,2023,Civil,charlie.brown@example.com,9990000003
+CSE00004,Diana Miller,student,2024,Computer Science,diana.miller@example.com,9990000004
+CSE00005,Eve Smith,alumni,2025,Mechanical,eve.smith@example.com,9990000005
+CSE00006,Frank Moore,student,2020,Electronics,frank.moore@example.com,9990000006
+CSE00007,Grace Taylor,alumni,2021,Civil,grace.taylor@example.com,9990000007
+CSE00008,Henry Lee,student,2022,Computer Science,henry.lee@example.com,9990000008
+CSE00009,Ivy Martin,alumni,2023,Mechanical,ivy.martin@example.com,9990000009
+CSE00010,Jack Davis,student,2024,Electronics,jack.davis@example.com,9990000010
+CSE00011,Kathy Wilson,alumni,2025,Civil,kathy.wilson@example.com,9990000011
+CSE00012,Liam Clark,student,2020,Computer Science,liam.clark@example.com,9990000012
+CSE00013,Mona Lewis,alumni,2021,Mechanical,mona.lewis@example.com,9990000013
+CSE00014,Nina Young,student,2022,Electronics,nina.young@example.com,9990000014
+CSE00015,Oscar Hall,alumni,2023,Civil,oscar.hall@example.com,9990000015
+CSE00016,Paul Allen,student,2024,Computer Science,paul.allen@example.com,9990000016
+CSE00017,Quinn Scott,alumni,2025,Mechanical,quinn.scott@example.com,9990000017
+CSE00018,Rita Adams,student,2020,Electronics,rita.adams@example.com,9990000018
+CSE00019,Sam Turner,alumni,2021,Civil,sam.turner@example.com,9990000019
+CSE00020,Tina Phillips,student,2022,Computer Science,tina.phillips@example.com,9990000020
+CSE00021,Uma Evans,alumni,2023,Mechanical,uma.evans@example.com,9990000021
+CSE00022,Victor Carter,student,2024,Electronics,victor.carter@example.com,9990000022
+CSE00023,Wendy Mitchell,alumni,2025,Civil,wendy.mitchell@example.com,9990000023
+CSE00024,Xavier King,student,2020,Computer Science,xavier.king@example.com,9990000024
+CSE00025,Yara Wright,alumni,2021,Mechanical,yara.wright@example.com,9990000025
+CSE00026,Zane Baker,student,2022,Electronics,zane.baker@example.com,9990000026
+CSE00027,Olivia Harris,alumni,2023,Civil,olivia.harris@example.com,9990000027
+CSE00028,Noah Thompson,student,2024,Computer Science,noah.thompson@example.com,9990000028
+CSE00029,Emma Robinson,alumni,2025,Mechanical,emma.robinson@example.com,9990000029
+CSE00030,James White,student,2020,Electronics,james.white@example.com,9990000030
+CSE00031,Sophia Walker,alumni,2021,Civil,sophia.walker@example.com,9990000031
+CSE00032,Benjamin Perez,student,2022,Computer Science,benjamin.perez@example.com,9990000032
+CSE00033,Isabella Hall,alumni,2023,Mechanical,isabella.hall@example.com,9990000033
+CSE00034,Elijah Allen,student,2024,Electronics,elijah.allen@example.com,9990000034
+CSE00035,Mia Young,alumni,2025,Civil,mia.young@example.com,9990000035
+CSE00036,Lucas Hernandez,student,2020,Computer Science,lucas.hernandez@example.com,9990000036
+CSE00037,Amelia Martinez,alumni,2021,Mechanical,amelia.martinez@example.com,9990000037
+CSE00038,Mason Lopez,student,2022,Electronics,mason.lopez@example.com,9990000038
+CSE00039,Harper Gonzalez,alumni,2023,Civil,harper.gonzalez@example.com,9990000039
+CSE00040,Ethan Wilson,student,2024,Computer Science,ethan.wilson@example.com,9990000040
+CSE00041,Evelyn Anderson,alumni,2025,Mechanical,evelyn.anderson@example.com,9990000041
+CSE00042,Logan Thomas,student,2020,Electronics,logan.thomas@example.com,9990000042
+CSE00043,Abigail Taylor,alumni,2021,Civil,abigail.taylor@example.com,9990000043
+CSE00044,Jacob Moore,student,2022,Computer Science,jacob.moore@example.com,9990000044
+CSE00045,Ella Jackson,alumni,2023,Mechanical,ella.jackson@example.com,9990000045
+CSE00046,Michael Martin,student,2024,Electronics,michael.martin@example.com,9990000046
+CSE00047,Avery Lee,alumni,2025,Civil,avery.lee@example.com,9990000047
