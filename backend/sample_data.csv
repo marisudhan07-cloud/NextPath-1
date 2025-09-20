@@ -1,9 +1,11 @@
 usn,full_name,role,batch,branch,email,phone
 ADM24001,Demo Admin,admin,2024,Administration,admin@example.com,1234567890
-CSE00001,Alice Johnson,alumni,2021,Mechanical,alice.johnson@example.com,9990000001
-CSE00002,Bob Williams,student,2022,Electronics,bob.williams@example.com,9990000002
-CSE00003,Charlie Brown,alumni,2023,Civil,charlie.brown@example.com,9990000003
-CSE00004,Diana Miller,student,2024,Computer Science,diana.miller@example.com,9990000004
+EEE20001,Demo Alumni,alumni,2020,Computer Science,alumni@example.com,1234567891
+ECE25001,Demo Student,student,2025,Mechanical,student@example.com,1234567892
+CSE21001,Alice Johnson,alumni,2021,Computer Science,alice@example.com,1112223330
+ECE22045,Bob Williams,student,2022,Electronics,bob@example.com,2223334440
+MHE20115,Charlie Brown,alumni,2020,Mechanical,charlie@example.com,3334445550
+CSE23007,Diana Miller,student,2023,Computer Science,diana@example.com,4445556660
 CSE00005,Eve Smith,alumni,2025,Mechanical,eve.smith@example.com,9990000005
 CSE00006,Frank Moore,student,2020,Electronics,frank.moore@example.com,9990000006
 CSE00007,Grace Taylor,alumni,2021,Civil,grace.taylor@example.com,9990000007
