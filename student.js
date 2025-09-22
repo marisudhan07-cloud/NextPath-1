@@ -511,7 +511,7 @@ function loadAvailableMentors() {
             expertise: ['Software Engineering', 'Career Development', 'Technical Interviews'],
             rating: 4.9,
             sessions: 45,
-            avatar: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+            avatar: 'jega.png',
             price: 'Free',
             responseTime: '< 2 hours',
             languages: ['English', 'Spanish']
@@ -524,7 +524,7 @@ function loadAvailableMentors() {
             expertise: ['Product Management', 'Leadership', 'Strategy'],
             rating: 4.8,
             sessions: 32,
-            avatar: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+            avatar: 'irshath.png',
             price: 'Free',
             responseTime: '< 4 hours',
             languages: ['English', 'Mandarin']
@@ -550,7 +550,7 @@ function loadAvailableMentors() {
             expertise: ['Data Science', 'Machine Learning', 'Statistics'],
             rating: 4.9,
             sessions: 41,
-            avatar: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+            avatar: 'nishitha.png',
             price: 'Free',
             responseTime: '< 3 hours',
             languages: ['English']
