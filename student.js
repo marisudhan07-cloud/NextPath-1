@@ -265,21 +265,21 @@ function loadUpcomingSessions() {
     const sessions = [
         {
             title: 'Career Guidance Session',
-            mentor: 'Sarah Johnson',
+            mentor: 'mari',
             time: 'Today, 3:00 PM',
             type: 'upcoming',
             id: 1
         },
         {
             title: 'Technical Interview Prep',
-            mentor: 'Mike Chen',
+            mentor: 'mani',
             time: 'Tomorrow, 2:00 PM',
             type: 'scheduled',
             id: 2
         },
         {
             title: 'Resume Review',
-            mentor: 'Lisa Rodriguez',
+            mentor: 'manju',
             time: 'Friday, 4:00 PM',
             type: 'scheduled',
             id: 3
@@ -615,21 +615,21 @@ function loadMyMentors() {
     const myMentors = [
         {
             id: 1,
-            name: 'John Smith',
+            name: 'Nithiyakumar',
             title: 'Senior Developer',
             company: 'TechCorp',
             nextSession: '2025-01-20 15:00',
-            avatar: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
+            avatar: '',
             totalSessions: 8,
             rating: 4.9
         },
         {
             id: 2,
-            name: 'Maria Garcia',
+            name: 'Maniii',
             title: 'UX Designer',
             company: 'DesignCo',
             nextSession: '2025-01-22 14:00',
-            avatar: 'https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop',
+            avatar: '',
             totalSessions: 5,
             rating: 4.8
         }
@@ -1251,7 +1251,7 @@ function generateBotResponse(userMessage) {
     const lowerMessage = userMessage.toLowerCase();
     
     const responses = {
-        'hello': "Hi Emma! 👋 How can I assist you today?",
+        'hello': "Hi 👋 How can I assist you today?",
         'hi': "Hello! I'm here to help you navigate your academic and career journey. What would you like to know?",
         'help': "I can help you with:\n• Finding mentors 👨‍🏫\n• Discovering events 📅\n• Exploring career opportunities 💼\n• Navigating resources 📚\n• Profile management 👤",
         'mentor': "Great! You can find amazing mentors in the Mentorship section. They can help with:\n• Career guidance\n• Technical skills\n• Interview preparation\n• Industry insights\n\nWould you like me to show you how to request a mentor?",
