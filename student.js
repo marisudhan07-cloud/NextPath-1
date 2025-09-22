@@ -12,8 +12,7 @@ let currentUser = {
     year: '2nd Year',
     department: 'ECE',
     id: 'CS2021001',
-    avatar: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop'
-};
+    avatar: 'photo/mari.jpg'
 
 // Initialize Application
 function initializeApp() {
