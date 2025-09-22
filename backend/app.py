@@ -5,6 +5,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_jwt_extended import create_access_token, JWTManager
 from dotenv import load_dotenv
+from app import db
+db.create_all()
 
 load_dotenv()
 app = Flask(__name__)
@@ -45,7 +47,8 @@ class PreregisteredUser(db.Model):
     branch = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(120), nullable=True)
     phone = db.Column(db.String(20), nullable=True)
-
+with app.app_context():
+    db.create_all()
 # --- AUTHENTICATION ROUTES ---
 @app.route('/api/auth/verify-usn', methods=['POST'])
 def verify_usn():
