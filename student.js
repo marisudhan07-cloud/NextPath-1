@@ -8,9 +8,9 @@ let currentSection = 'dashboard';
 let sidebarOpen = false;
 let chatbotOpen = true;
 let currentUser = {
-    name: 'Emma Thompson',
-    year: '3rd Year',
-    department: 'Computer Science',
+    name: 'Mari sudhan J',
+    year: '2nd Year',
+    department: 'ECE',
     id: 'CS2021001',
     avatar: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop'
 };
@@ -132,7 +132,7 @@ function showSection(sectionId) {
 
 function updatePageTitle(sectionId) {
     const titles = {
-        dashboard: { title: 'Student Dashboard', subtitle: 'Welcome back, Emma!' },
+        dashboard: { title: 'Student Dashboard', subtitle: 'Welcome back' },
         alumni: { title: 'Alumni Directory', subtitle: 'Connect with experienced alumni' },
         mentorship: { title: 'Find Mentors', subtitle: 'Get guidance from industry experts' },
         events: { title: 'Alumni Events', subtitle: 'Discover networking opportunities' },
@@ -344,11 +344,11 @@ function loadAlumniDirectory() {
     const alumni = [
         {
             id: 1,
-            name: 'Sarah Wilson',
+            name: 'Jegadeesh',
             title: 'Senior Software Engineer',
             company: 'Google',
             batch: '2018',
-            department: 'Computer Science',
+            department: 'ECE',
             location: 'San Francisco, CA',
             avatar: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
             skills: ['JavaScript', 'Python', 'React', 'Machine Learning'],
@@ -359,7 +359,7 @@ function loadAlumniDirectory() {
         },
         {
             id: 2,
-            name: 'David Chen',
+            name: 'IRSHATH',
             title: 'Product Manager',
             company: 'Microsoft',
             batch: '2017',
@@ -374,7 +374,7 @@ function loadAlumniDirectory() {
         },
         {
             id: 3,
-            name: 'Lisa Rodriguez',
+            name: 'NANDHINI',
             title: 'Marketing Director',
             company: 'Amazon',
             batch: '2019',
@@ -389,7 +389,7 @@ function loadAlumniDirectory() {
         },
         {
             id: 4,
-            name: 'James Thompson',
+            name: 'NISHITHA',
             title: 'Data Scientist',
             company: 'Netflix',
             batch: '2020',
@@ -404,7 +404,7 @@ function loadAlumniDirectory() {
         },
         {
             id: 5,
-            name: 'Maria Garcia',
+            name: 'NESHIKA',
             title: 'UX Designer',
             company: 'Adobe',
             batch: '2019',
@@ -419,7 +419,7 @@ function loadAlumniDirectory() {
         },
         {
             id: 6,
-            name: 'Robert Kim',
+            name: 'RABAS ALBER',
             title: 'Financial Analyst',
             company: 'Goldman Sachs',
             batch: '2018',
@@ -505,7 +505,7 @@ function loadAvailableMentors() {
     const mentors = [
         {
             id: 1,
-            name: 'Sarah Wilson',
+            name: 'Jegadeesh',
             title: 'Senior Software Engineer',
             company: 'Google',
             expertise: ['Software Engineering', 'Career Development', 'Technical Interviews'],
@@ -518,7 +518,7 @@ function loadAvailableMentors() {
         },
         {
             id: 2,
-            name: 'David Chen',
+            name: 'IRSHATH',
             title: 'Product Manager',
             company: 'Microsoft',
             expertise: ['Product Management', 'Leadership', 'Strategy'],
@@ -531,7 +531,7 @@ function loadAvailableMentors() {
         },
         {
             id: 3,
-            name: 'Lisa Rodriguez',
+            name: 'Nandhini',
             title: 'Marketing Director',
             company: 'Amazon',
             expertise: ['Marketing', 'Brand Strategy', 'Digital Marketing'],
@@ -544,7 +544,7 @@ function loadAvailableMentors() {
         },
         {
             id: 4,
-            name: 'James Thompson',
+            name: 'Nishitha',
             title: 'Data Scientist',
             company: 'Netflix',
             expertise: ['Data Science', 'Machine Learning', 'Statistics'],

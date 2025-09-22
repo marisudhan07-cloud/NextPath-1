@@ -823,11 +823,11 @@ function handleStatClick(stat) {
   const statData = {
     users: { 
       title: "Active Alumni Network",
-      details: "25,000+ verified alumni across 150+ countries, with 85% active monthly engagement"
+      details: "2500+ verified alumni across 150+ countries, with 85% active monthly engagement"
     },
     institutions: {
       title: "Partner Institutions", 
-      details: "500+ educational institutions trust AlumniConnect for their alumni engagement"
+      details: "50+ educational institutions trust AlumniConnect for their alumni engagement"
     },
     donations: {
       title: "Fundraising Success",
@@ -835,7 +835,7 @@ function handleStatClick(stat) {
     },
     mentorships: {
       title: "Mentorship Impact",
-      details: "15,000+ successful mentoring relationships with 92% completion rate"
+      details: "1500+ successful mentoring relationships with 92% completion rate"
     }
   };
 
@@ -940,13 +940,13 @@ function handleLearnMoreAbout() {
   setTimeout(() => {
     openChatbot();
     setTimeout(() => {
-      addBotMessage("I'd love to tell you more about AlumniConnect! We're revolutionizing alumni engagement with cutting-edge technology. What specific aspect interests you most?");
+      addBotMessage("I'd love to tell you more about NextGen Devops! We're revolutionizing alumni engagement with cutting-edge technology. What specific aspect interests you most?");
     }, 1000);
   }, 1500);
 }
 
 function handleStartJourney() {
-  showNotification("Welcome to your AlumniConnect journey! 🚀", "success", 3000);
+  showNotification("Welcome to your NextGen Devops journey! 🚀", "success", 3000);
   setTimeout(() => {
     handleSignIn();
   }, 3000);

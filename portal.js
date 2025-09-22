@@ -136,7 +136,7 @@ function updatePageTitle(tabName) {
   };
 
   const subtitleMap = {
-    dashboard: "Welcome back, Michael!",
+    dashboard: "Welcome back",
     directory: "Connect with fellow alumni",
     mentorship: "Share knowledge and grow together",
     events: "Stay connected with your community",
@@ -186,9 +186,9 @@ function loadTabData(tabName) {
 // Enhanced User Profile Management
 function loadUserProfile() {
   const userInfo = {
-    name: "Michael Chen",
+    name: "Asif",
     batch: "Class of 2018",
-    department: "CS",
+    department: "ECE",
     avatar: "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop",
   };
 
@@ -447,9 +447,9 @@ function loadMyMentees() {
   const mentees = [
     {
       id: 1,
-      name: "Emma Thompson",
-      year: "3rd Year",
-      department: "Computer Science",
+      name: "Mari sudhan J",
+      year: "2nd Year",
+      department: "ECE",
       avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop",
       interests: ["Web Development", "Machine Learning"],
       nextSession: "2025-01-20 15:00",
@@ -457,9 +457,9 @@ function loadMyMentees() {
     },
     {
       id: 2,
-      name: "James Wilson",
+      name: "Prakash",
       year: "2nd Year",
-      department: "Computer Science",
+      department: "ECE",
       avatar: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop",
       interests: ["Mobile Development", "UI/UX"],
       nextSession: "2025-01-22 14:00",
@@ -467,8 +467,8 @@ function loadMyMentees() {
     },
     {
       id: 3,
-      name: "Sophie Chen",
-      year: "4th Year",
+      name: "Nithish",
+      year: "2nd Year",
       department: "Data Science",
       avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop",
       interests: ["Data Analysis", "Python"],
@@ -530,7 +530,7 @@ function loadUpcomingSessions() {
   const sessions = [
     {
       id: 1,
-      mentee: "Emma Thompson",
+      mentee: "Mari sudhan J",
       topic: "Career Guidance Session",
       date: "2025-01-20 15:00",
       duration: "1 hour",
@@ -539,7 +539,7 @@ function loadUpcomingSessions() {
     },
     {
       id: 2,
-      mentee: "James Wilson",
+      mentee: "Nithish",
       topic: "Technical Interview Prep",
       date: "2025-01-22 14:00",
       duration: "45 minutes",
@@ -691,9 +691,9 @@ function loadUpcomingEvents() {
     {
       id: 1,
       title: "Annual Alumni Meetup 2025",
-      date: "2025-03-15",
+      date: "2025-12-15",
       time: "18:00",
-      location: "University Campus",
+      location: "SNS college of technology",
       type: "networking",
       attendees: 150,
       price: "Free",
@@ -703,9 +703,9 @@ function loadUpcomingEvents() {
     {
       id: 2,
       title: "Tech Career Fair 2025",
-      date: "2025-02-20",
+      date: "2025-11-20",
       time: "10:00",
-      location: "Convention Center",
+      location: "SNS college of engineering",
       type: "career",
       attendees: 200,
       price: "$25",
@@ -715,7 +715,7 @@ function loadUpcomingEvents() {
     {
       id: 3,
       title: "Alumni Webinar: AI in 2025",
-      date: "2025-01-25",
+      date: "2025-10-25",
       time: "19:00",
       location: "Online",
       type: "workshop",

@@ -36,7 +36,7 @@ function initAdminDashboard() {
 
   // Show success message on load
   setTimeout(() => {
-    showNotification("Welcome to AlumniConnect Admin Dashboard!", "success");
+    showNotification("Welcome to NextGen Devops Admin Dashboard!", "success");
   }, 1000);
 }
 
