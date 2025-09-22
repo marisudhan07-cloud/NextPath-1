@@ -13,7 +13,7 @@ let currentUser = {
     department: 'ECE',
     id: 'CS2021001',
     avatar: 'photo/mari.jpg'
-
+};
 // Initialize Application
 function initializeApp() {
     console.log('Initializing Student Dashboard...');
