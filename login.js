@@ -54,7 +54,9 @@ function redirectToRoleDashboard(role) {
   };
   window.location.href = redirectMap[role] || "index.html";
 }
-
+function updatePage() {
+  document.getElementById('myDiv').innerHTML = 'The page has been updated!';
+}
 function initLoginForm() {
   const form = document.getElementById("loginForm");
   form.addEventListener("submit", function (e) { e.preventDefault(); handleLogin(); });
