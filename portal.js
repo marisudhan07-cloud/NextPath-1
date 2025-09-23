@@ -326,7 +326,7 @@ function loadAlumniDirectory() {
 }
 
 function generateAlumniData() {
-  const names = ["Sarah Wilson", "David Chen", "Lisa Rodriguez", "James Thompson", "Maria Garcia", "John Smith", "Emily Brown", "Michael Johnson"];
+  const names = ["Jegadeesh", "Irshath", "Nishitha", "Nandhini", "Neshika", "Manii", "kanish", "Manish"];
   const titles = ["Senior Software Engineer", "Product Manager", "Marketing Director", "Data Scientist", "UX Designer", "DevOps Engineer", "Financial Analyst", "Research Scientist"];
   const companies = ["Google", "Microsoft", "Amazon", "Netflix", "Apple", "Meta", "Tesla", "SpaceX"];
   const locations = ["San Francisco, CA", "Seattle, WA", "New York, NY", "Los Angeles, CA", "Austin, TX", "Boston, MA", "Chicago, IL", "Portland, OR"];
@@ -450,7 +450,7 @@ function loadMyMentees() {
       name: "Mari sudhan J",
       year: "2nd Year",
       department: "ECE",
-      avatar: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop",
+      avatar: "mari.jpg",
       interests: ["Web Development", "Machine Learning"],
       nextSession: "2025-01-20 15:00",
       progress: 75
@@ -460,7 +460,7 @@ function loadMyMentees() {
       name: "Prakash",
       year: "2nd Year",
       department: "ECE",
-      avatar: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop",
+      avatar: "no image",
       interests: ["Mobile Development", "UI/UX"],
       nextSession: "2025-01-22 14:00",
       progress: 60
@@ -470,7 +470,7 @@ function loadMyMentees() {
       name: "Nithish",
       year: "2nd Year",
       department: "Data Science",
-      avatar: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop",
+      avatar: "no image",
       interests: ["Data Analysis", "Python"],
       nextSession: "2025-01-25 16:00",
       progress: 85
@@ -595,22 +595,21 @@ function loadMentorshipRequests() {
   const requests = [
     {
       id: 1,
-      name: "Alex Kumar",
+      name: "KANISH",
       year: "1st Year",
-      department: "Computer Science",
+      department: "ECE",
       message: "Hi! I'm interested in learning about web development and would love your guidance.",
       date: "2025-01-15",
-      avatar: "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop"
+      avatar: "no image"
     },
     {
       id: 2,
-      name: "Rachel Green",
+      name: "MANII",
       year: "2nd Year",
       department: "Data Science",
       message: "I'm looking for mentorship in machine learning and data analysis. Your profile caught my attention!",
       date: "2025-01-14",
-      avatar: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&fit=crop"
-    }
+      avatar: 'no image'
   ];
 
   requestsList.innerHTML = requests
