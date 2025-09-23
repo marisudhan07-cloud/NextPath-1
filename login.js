@@ -27,8 +27,13 @@ async function handleLogin() {
 
     try {
         // Now sending the USN to the backend
-        const data = await apiRequest('/auth/login', 'POST', { usn, password });
-
+         // Connect to Flask API endpoint
+        const response = await fetch('http://127.0.0.1:5000/api/auth/login', {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ usn, password })
+        });
+        const data = await response.json();
         if (data.token && data.role) {
             localStorage.setItem('authToken', data.token);
             showNotification("Login successful! Redirecting...", "success");

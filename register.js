@@ -21,27 +21,24 @@ async function handleVerifyUsn() {
     }
     
     try {
-        // This API call will ask the backend if the USN is valid
-        const data = await apiRequest('/auth/verify-usn', 'POST', { usn, role });
+        {
+        const response = await fetch('http://127.0.0.1:5000/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ usn, password })
+        });
+        const data = await response.json();
 
-        // If the backend finds the user, it will return their details
-        if (data.user) {
-            // Auto-fill the form fields
-            document.getElementById("fullName").value = data.user.fullName;
-            document.getElementById("batch").value = data.user.batch;
-            document.getElementById("branch").value = data.user.branch;
-            document.getElementById("email").value = data.user.email;
-            document.getElementById("phone").value = data.user.phone;
-
-            // Hide the verification step and show the details step
-            document.getElementById("verificationStep").style.display = 'none';
-            document.getElementById("detailsStep").style.display = 'block';
-            showNotification("Verification successful! Please confirm your details and set a password.", "success");
+        if (data.token && data.role) {
+            alert("Login successful!");
+            // You can redirect or store token here
+        } else {
+            alert(data.message || "Login failed");
         }
     } catch (error) {
-        // The apiRequest helper will show the error from the backend,
-        // e.g., "USN not found" or "Account already registered".
+        alert("Network error. Please try again.");
     }
+}
 }
 
 async function handleRegister() {

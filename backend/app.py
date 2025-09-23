@@ -5,11 +5,13 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_jwt_extended import create_access_token, JWTManager
 from dotenv import load_dotenv
+from flask_cors import CORS
+CORS(app)
 from app import db
 db.create_all()
 
 load_dotenv()
-app = Flask(__name__)
+app = Flask(app)
 app.config['DEBUG'] = True
 CORS(app)
 
@@ -17,7 +19,7 @@ CORS(app)
 db_url = os.getenv("DATABASE_URL")
 if db_url and db_url.startswith("postgres://"):
     db_url = db_url.replace("postgres://", "postgresql://", 1)
-app.config['SQLALCHEMY_DATABASE_URI'] = db_url
+app.config['SQLALCHEMY_DATABASE_URI'] = mydb.db
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -57,14 +59,14 @@ def verify_usn():
     role = data.get('role')
     preregistered_user = PreregisteredUser.query.filter_by(usn=usn, role=role).first()
     if not preregistered_user:
-        return jsonify({"message": f"USN not found in the {role} records."}), 404
+        return jsonify({"message": f"usn not found in the {role} records."}), 404
     existing_account = User.query.filter_by(usn=usn).first()
     if existing_account:
-        return jsonify({"message": "This USN has already been registered. Please log in."}), 409
+        return jsonify({"message": "This usn has already been registered. Please log in."}), 409
     user_details = { "fullName": preregistered_user.full_name, "batch": preregistered_user.batch, "branch": preregistered_user.branch, "email": preregistered_user.email, "phone": preregistered_user.phone }
     return jsonify({"message": "Verification successful", "user": user_details}), 200
 
-@app.route('/api/auth/register', methods=['POST'])
+@app.route('http://127.0.0.1:5000/api/auth/register', methods=['POST'])
 def register_user():
     data = request.get_json()
     usn = data.get('usn')
@@ -119,4 +121,4 @@ def login_user():
         return jsonify({"message": "Invalid credentials"}), 401
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
