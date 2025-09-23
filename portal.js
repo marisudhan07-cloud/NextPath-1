@@ -610,6 +610,7 @@ function loadMentorshipRequests() {
       message: "I'm looking for mentorship in machine learning and data analysis. Your profile caught my attention!",
       date: "2025-01-14",
       avatar: 'no image'
+    }
   ];
 
   requestsList.innerHTML = requests
