@@ -29,7 +29,7 @@ async function handleLogin() {
         // Now sending the USN to the backend
          // Connect to Flask API endpoint
         const response = await fetch('http://127.0.0.1:5000/api/auth/login', {
-            method: 'GET',
+            method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ usn, password })
         });
