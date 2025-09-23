@@ -379,7 +379,7 @@ function loadAlumniDirectory() {
             batch: '2019',
             department: 'Business',
             location: 'New York, NY',
-            avatar: 'https://images.pexels.com/photos/1181424/pexels-photo-1181424.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+            avatar: 'no image',
             skills: ['Digital Marketing', 'Brand Strategy', 'Analytics', 'SEO'],
             industry: 'technology',
             experience: '3-5',
